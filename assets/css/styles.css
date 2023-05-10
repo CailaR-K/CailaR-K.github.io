@@ -139,8 +139,8 @@ nav ul li {
 }
 /*====== Home End ======*/
 
-/*====== Skills ======*/
-.skills {
+/*====== Resume ======*/
+.resume {
   margin-left: 10rem;
   margin-right: 10rem;
   margin-top: var(--margin-4);
@@ -148,7 +148,7 @@ nav ul li {
   padding: var(--padding-2);
 }
 
-.skills h2 {
+.resume h2 {
   padding: var(--padding-2);
   text-align: center;
 }
@@ -182,11 +182,11 @@ nav ul li {
   cursor: pointer;
 }
 
-.skills h3 {
+.resume h3 {
   padding-bottom: 0.7rem;
 }
 
-.skills p {
+.resume p {
   line-height: var(--line-height);
   text-align: left;
 }
@@ -202,7 +202,7 @@ nav ul li {
 .resume-item {
   padding-top: 0.8rem;
 }
-/*====== Skills End ======*/
+/*====== Resume End ======*/
 
 /*====== Projects ======*/
 .projects {
@@ -509,7 +509,7 @@ footer {
     width: 100%;
   }
 
-  .skills {
+  .resume {
     margin-left: var(--margin-2);
     margin-right: var(--margin-2);
   }
