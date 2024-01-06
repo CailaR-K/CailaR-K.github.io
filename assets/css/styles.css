@@ -725,11 +725,11 @@ footer {
   }
 
   .projects-text h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .projects-text p {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .about {
@@ -764,6 +764,14 @@ footer {
 
   .summary p {
     padding-bottom: 0rem;
+  }
+
+  .projects-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .projects-text p {
+    font-size: 1rem;
   }
 
   .arrow {
