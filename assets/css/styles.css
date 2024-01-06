@@ -404,7 +404,7 @@ nav ul li {
 }
 
 .slidePersonas, .slideEpics, .slidePresentation, .slideWorksheet, .slidePersona, .slideSitemap {
-	display: none
+	display: none;
 }
 
 .slide-container {
