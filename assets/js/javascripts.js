@@ -1,4 +1,3 @@
-
 /*====== Scroll - Show, To Top ======*/
 let up = document.getElementById("scroll-up");
 
@@ -41,75 +40,37 @@ navLink.forEach((link) =>
 );
 /*====== Nav Hamburger Done ======*/
 
-/*====== Project - Filter and Active ======*/
-//adds "show to the class name of the elements to be shown"
-// Filter each project by subject
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("projects-column");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
-
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  if (arr1.indexOf(arr2[0]) == -1) {element.className += " " + arr2[0];}
-}
-
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  if (arr1.indexOf("show") > -1) {
-    arr1.splice(arr1.indexOf(arr2[0]), 1);     
-  }
-  element.className = arr1.join(" ");
-}
-
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("projects-filter");
-var btns = btnContainer.getElementsByClassName("projects-filter-btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
+/*====== Arrow Down ======*/
+$(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
   });
+});
+/*====== Arrow Down ======*/
+
+/*====== Project Slides ======*/
+let slideIndex = [1,1,1,1,1,1];
+let slideId = ["slidePersonas", "slideEpics", "slidePresentation", "slideWorksheet", "slidePersona", "slideSitemap"]
+showSlides(1, 0);
+showSlides(1, 1);
+showSlides(1, 2);
+showSlides(1, 3);
+showSlides(1, 4);
+showSlides(1, 5);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
 }
-/*====== Project - Filter and Active Done ======*/
 
-/*====== Modal - Open/Close ======*/
-function modalDisplay(btnName, modalName) {
-  var modal, btn, span;
-  // Get the modal
-  modal = document.getElementById(modalName);
-  // Get the button that opens the modal
-  btn = document.getElementById(btnName);
-  // Get the <span> element that closes the modal
-  var span = document.getElementById(modalName);
-
-  // When the user clicks on the button, open the modal
-  btn.onclick = function() {
-    modal.style.display = "block";
+function showSlides(n, no) {
+  let i;
+  let x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
   }
-  btn.click();
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+  x[slideIndex[no]-1].style.display = "block";  
 }
-/*====== Modal - Open/Close Done ======*/
+/*====== Project Slides Done ======*/
