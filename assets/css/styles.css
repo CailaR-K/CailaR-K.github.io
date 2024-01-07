@@ -127,13 +127,8 @@ nav ul li {
   max-width: 68.75rem;
   margin: auto;
   margin-top: 2rem;
-  /*margin-bottom: var(--margin-4);
+  margin-bottom: var(--margin-4);
   padding: 4rem;
-  */
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-top: 4rem;
-  padding-bottom: 0.5rem;
 }
 
 .summary-container {
@@ -156,63 +151,6 @@ nav ul li {
   padding-bottom: 1rem;
   text-align: left;
   text-wrap: wrap;
-}
-
-.arrow {
-  max-width: 1000px;
-  margin: auto;
-  padding: var(--padding-1);
-}
-
-.arrow a {
-  position: static;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  left: 50%;
-  z-index: 1;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.arrow a:hover {
-  opacity: 0.5;
-}
-
-#arrow a span {
-  position: absolute;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  border-left: 2px solid var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  -webkit-animation: sdb05 1.5s infinite;
-  animation: sdb05 2.5s infinite;
-}
-@-webkit-keyframes sdb05 {
-  0% {
-    -webkit-transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
-    opacity: 0;
-  }
-}
-@keyframes sdb05 {
-  0% {
-    transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(-45deg) translate(-20px, 20px);
-    opacity: 0;
-  }
 }
 /*====== Summary End ======*/
 
@@ -606,25 +544,24 @@ button {
 
 /* Desktops, large screens: 1025px — 1200px */
 @media screen and (max-width: 1200px) {
-  .arrow {
-    padding-bottom: 2.5rem;
-  }
+
 }
 
 /* Small screens, laptops: 769px — 1024px */
 @media screen and (max-width: 1024px) {
   .summary {
-    margin-top: var(--margin-1);
     flex-direction: column;
     gap: 1.5rem;
+    margin-top: var(--margin-1);
+    margin-bottom: var(--margin-2);
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .summary h1 {
     font-size: 2rem;
-  }
-
-  .arrow {
-    padding-bottom: 4rem;
   }
 
   .projects {
@@ -702,11 +639,6 @@ button {
     width: 70%;
   }
 
-  .summary {
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-  }
-
   .summary-container {
     width: 100%;
   }
@@ -758,10 +690,9 @@ button {
 
   .summary {
     padding-top: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 0rem;
-    margin-bottom: 0rem;
+    padding-bottom: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .summary h1 {
@@ -772,22 +703,12 @@ button {
     width: 80%;
   }
 
-  .summary p {
-    padding-bottom: 0rem;
-  }
-
   .projects-text h3 {
     font-size: 1.5rem;
   }
 
   .projects-text p {
     font-size: 1rem;
-  }
-
-  .arrow {
-    margin-top: 0rem;
-    padding-top: 0rem;
-    padding-bottom: 3rem;
   }
 
   .project {
