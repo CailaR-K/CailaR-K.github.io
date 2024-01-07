@@ -42,7 +42,7 @@ navLink.forEach((link) =>
 
 /*====== Project Slides ======*/
 let slideIndex = [1,1,1,1,1,1];
-let slideId = ["slidePersonas", "slideEpics", "slidePresentation", "slideWorksheet", "slidePersona", "slideSitemap"]
+let slideId = ["slideWorksheet", "slidePersona", "slideSitemap", "slidePersonas", "slideEpics", "slidePresentation"]
 showSlides(1, 0);
 showSlides(1, 1);
 showSlides(1, 2);
