@@ -112,7 +112,7 @@ nav ul li {
 .burger-menu {
   color: var(--primary-color);
   font-size: 3rem;
-  border: 0;
+  border: 0 !important;
   background-color: transparent;
   cursor: pointer;
   display: none;
@@ -664,7 +664,10 @@ button {
 /* iPads, Tablets: 481px — 768px */
 @media screen and (max-width: 768px) {
   nav{
-    padding: 1rem 1.5rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 2rem;
+    padding-right: 0rem;
   } 
 
   nav ul {
@@ -685,6 +688,8 @@ button {
 
   .burger-menu {
     display: block;
+    font-size: 0.5rem;
+    padding-left: 4rem;
   }
 
   .bars {
@@ -755,6 +760,10 @@ button {
 
 /* Mobile devices: 320px — 480px */
 @media screen and (max-width: 480px) {
+  nav {
+    padding-top: 1rem;
+  } 
+
   .summary {
     padding-top: 1rem;
     padding-left: 2rem;
