@@ -40,15 +40,6 @@ navLink.forEach((link) =>
 );
 /*====== Nav Hamburger Done ======*/
 
-/*====== Arrow Down ======*/
-$(function() {
-  $('a[href*=#]').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-  });
-});
-/*====== Arrow Down ======*/
-
 /*====== Project Slides ======*/
 let slideIndex = [1,1,1,1,1,1];
 let slideId = ["slidePersonas", "slideEpics", "slidePresentation", "slideWorksheet", "slidePersona", "slideSitemap"]
@@ -74,3 +65,12 @@ function showSlides(n, no) {
   x[slideIndex[no]-1].style.display = "block";  
 }
 /*====== Project Slides Done ======*/
+
+/*====== Arrow Down ======*/
+$(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
+/*====== Arrow Down ======*/

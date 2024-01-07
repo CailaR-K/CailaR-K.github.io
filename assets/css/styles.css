@@ -379,30 +379,6 @@ nav ul li {
   padding-top: var(--padding-3);
 }
 
-.project-btn-container {
-  text-align: center;
-}
-
-.project-btn {
-  width: 10.5rem;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 1rem;
-  font-weight: var(--bold-font);
-  transition: var(--transition);
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  border-radius: 5px;
-}
-
-.project-btn:hover {
-  background-color: var(--primary-color);
-  color: var(--bg-color);
-  border: 2px solid var(--primary-color);
-  cursor: pointer;
-}
-
 .slidePersonas, .slideEpics, .slidePresentation, .slideWorksheet, .slidePersona, .slideSitemap {
 	display: none;
 }
@@ -424,21 +400,20 @@ nav ul li {
 }
 
 .prev, .next {
-  cursor: pointer;
   position: absolute;
   top: 50%;
   height: 40px;
   width: 40px;
   padding: 10px;
   margin-top: -22px;
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  font-weight: bold;
   font-size: 18px;
-  transition: 0.6s ease;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  transition: 0.3s ease;
   border-radius: 50%;
-  user-select: none;
   text-align: center;
+  user-select: none;
 }
 
 .prev {
@@ -450,9 +425,10 @@ nav ul li {
 }
 
 .prev:hover, .next:hover {
-  color: var(--bg-color);
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  border: 2px solid var(--bg-color);
+  cursor: pointer;
 }
 
 .slide-btn:active {
@@ -492,30 +468,6 @@ nav ul li {
 
 .about-text {
   padding-bottom: 1rem;
-}
-
-.about-btn-container {
-  text-align: center;
-}
-
-.about-btn {
-  color: var(--primary-color);
-  width: 9rem;
-  padding: 10px;
-  margin: 10px 0;
-  background-color: var(--bg-color);
-  border: 2px solid var(--primary-color);
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: var(--bold-font);
-  transition: var(--transition);
-}
-
-.about-btn:hover {
-  color: var(--bg-color);
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-  cursor: pointer;
 }
 
 .about-img {
@@ -600,6 +552,50 @@ footer {
   height: 3rem;
 }
 /*====== Scroll End ======*/
+
+/*====== Button End ======*/
+.btn-container {
+  text-align: center;
+}
+
+button {
+  width: 10.5rem;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: var(--bold-font);
+  transition: var(--transition);
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.about-btn {
+  width: 9rem;
+}
+
+.project-btn {
+  width: 10.5rem;
+}
+
+.wireframe-project-btn {
+  width: 14rem;
+}
+
+.project-download-btn {
+  width: 17.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:hover, button:active {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+  }
+}
+/*====== Button End ======*/
 
 /*====== Responsive ======*/
 /* Extra large screens, TV: 1201px and more */
@@ -730,6 +726,19 @@ footer {
 
   .projects-text p {
     font-size: 1.5rem;
+  }
+
+  .prev, .next {
+    height: 30px;
+    width: 30px;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .prev:hover, .next:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border: var(--primary-color);
   }
 
   .about {
