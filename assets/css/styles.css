@@ -403,12 +403,7 @@ nav ul li {
 }
 
 .about-bold {
-  font-weight: bold;
-  /*
-  font-weight: 200;
-  --normal-font: 400;
-  --bold-font: 700;
-  */
+  font-weight: 700;
 }
 
 .about-text {
