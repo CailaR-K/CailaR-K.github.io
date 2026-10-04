@@ -447,13 +447,13 @@ nav ul li {
   text-align: center;
 }
 
+.contact h3 {
+  padding: var(--padding-1);
+}
+
 .contact p {
   line-height: var(--line-height);
   text-wrap: wrap;
-}
-
-.contact-text {
-  padding-bottom: 1rem;
 }
 
 /*
@@ -465,6 +465,10 @@ nav ul li {
 .contact-text {
   padding-top: 0.5rem;
   font-weight: var(--bold-font); 
+}
+
+.contact-text {
+  padding-bottom: 1rem;
 }
 
 .icons {
