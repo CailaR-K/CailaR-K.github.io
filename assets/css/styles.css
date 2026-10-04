@@ -398,6 +398,10 @@ nav ul li {
 .slide-btn:active {
   transform: scale(1.1);
 }
+
+.about-bold {
+  font-weight: 700;
+}
 /*====== Project End ======*/
 
 /*====== About ======*/
