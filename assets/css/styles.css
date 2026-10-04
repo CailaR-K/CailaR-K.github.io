@@ -402,6 +402,15 @@ nav ul li {
   text-wrap: wrap;
 }
 
+.about-bold {
+  font-weight: bold;
+  /*
+  font-weight: 200;
+  --normal-font: 400;
+  --bold-font: 700;
+  */
+}
+
 .about-text {
   padding-bottom: 1rem;
 }
