@@ -442,6 +442,10 @@ nav ul li {
   padding-top: 2.5rem;
 }
 
+.contact-text {
+  padding-bottom: 1rem;
+}
+
 .contact h2 {
   padding: var(--padding-1);
   text-align: center;
@@ -461,10 +465,6 @@ nav ul li {
 .contact-text {
   padding-top: 0.5rem;
   font-weight: var(--bold-font); 
-}
-
-.contact-text {
-  padding-bottom: 1rem;
 }
 
 .icons {
