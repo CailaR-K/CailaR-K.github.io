@@ -433,7 +433,6 @@ nav ul li {
 .contact {
   margin: auto;
   margin-top: var(--margin-3);
-  margin-bottom: var(--margin-3);
   padding-left: var(--padding-2);
   padding: var(--padding-2);
   max-width:1000px;
@@ -461,6 +460,10 @@ nav ul li {
   line-height: var(--line-height);
   list-style-type: disc;
   padding-left: 1rem;
+}
+
+.contact-bottom {
+  margin-bottom: var(--margin-3);
 }
 /*====== Contact End ======*/
 
