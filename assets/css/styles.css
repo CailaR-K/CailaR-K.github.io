@@ -146,6 +146,10 @@ nav ul li {
   padding-bottom: 1rem;
 }
 
+.summary h3 {
+  padding-bottom: 0rem;
+}
+
 .summary p {
   line-height: var(--line-height);
   padding-bottom: 1rem;
