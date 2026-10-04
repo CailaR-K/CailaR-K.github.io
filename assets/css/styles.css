@@ -171,10 +171,6 @@ nav ul li {
   padding-top: 2.5rem;
 }
 
-.additional_work-text {
-  padding-bottom: 1rem;
-}
-
 .additional_work h2 {
   padding: var(--padding-1);
   text-align: center;
@@ -183,12 +179,6 @@ nav ul li {
 .additional_work p {
   line-height: var(--line-height);
   text-wrap: wrap;
-}
-
-.additional_work ul {
-  line-height: var(--line-height);
-  list-style-type: disc;
-  padding-left: 1rem;
 }
 /*====== Additional Work End ======*/
 
