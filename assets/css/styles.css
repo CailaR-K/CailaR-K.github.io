@@ -158,6 +158,40 @@ nav ul li {
 }
 /*====== Summary End ======*/
 
+/*====== Additional Work ======*/
+.additional_work {
+  margin: auto;
+  margin-top: var(--margin-3);
+  padding-left: var(--padding-2);
+  padding: var(--padding-2);
+  max-width:1000px;
+}
+
+.additional_work-container {
+  padding-top: 2.5rem;
+}
+
+.additional_work-text {
+  padding-bottom: 1rem;
+}
+
+.additional_work h2 {
+  padding: var(--padding-1);
+  text-align: center;
+}
+
+.additional_work p {
+  line-height: var(--line-height);
+  text-wrap: wrap;
+}
+
+.additional_work ul {
+  line-height: var(--line-height);
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+/*====== Additional Work End ======*/
+
 /*====== Projects ======*/
 .projects {
   max-width: 1000px;
