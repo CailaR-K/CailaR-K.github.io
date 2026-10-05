@@ -497,6 +497,10 @@ nav ul li {
   list-style-type: disc;
   padding-left: 1rem;
 }
+
+.contact-bold {
+  font-weight: 700;
+}
 /*====== Contact End ======*/
 
 /*====== Footer ======*/
