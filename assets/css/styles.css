@@ -158,30 +158,6 @@ nav ul li {
 }
 /*====== Summary End ======*/
 
-/*====== Additional Work ======*/
-.additional_work {
-  margin: auto;
-  margin-top: var(--margin-3);
-  padding-left: var(--padding-2);
-  padding: var(--padding-2);
-  max-width:1000px;
-}
-
-.additional_work-container {
-  padding-top: 2.5rem;
-}
-
-.additional_work h2 {
-  padding: var(--padding-1);
-  text-align: center;
-}
-
-.additional_work p {
-  line-height: var(--line-height);
-  text-wrap: wrap;
-}
-/*====== Additional Work End ======*/
-
 /*====== Projects ======*/
 .projects {
   max-width: 1000px;
@@ -247,6 +223,11 @@ nav ul li {
   transform: scale(1.1);
 }
 
+.projects-normal {
+  padding-top: 2.5rem;
+  text-align: center;
+}
+
 .projects-text h3 {
   padding-bottom: 0.5rem;
   font-size: 2.5rem;
@@ -280,11 +261,6 @@ nav ul li {
 
 .project-container {
   padding-top: 2.5rem;
-}
-
-.projects-space {
-  padding-bottom: 1rem;
-  text-align: center;
 }
 
 .project-container-item {
@@ -408,6 +384,30 @@ nav ul li {
   transform: scale(1.1);
 }
 /*====== Project End ======*/
+
+/*====== Additional Work ======*/
+.additional_work {
+  margin: auto;
+  margin-top: var(--margin-3);
+  padding-left: var(--padding-2);
+  padding: var(--padding-2);
+  max-width:1000px;
+}
+
+.additional_work-container {
+  padding-top: 2.5rem;
+}
+
+.additional_work h2 {
+  padding: var(--padding-1);
+  text-align: center;
+}
+
+.additional_work p {
+  line-height: var(--line-height);
+  text-wrap: wrap;
+}
+/*====== Additional Work End ======*/
 
 /*====== About ======*/
 .about {
