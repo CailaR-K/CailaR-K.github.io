@@ -503,7 +503,6 @@ nav ul li {
   width: 40%;
   border-radius: 50%;
   display: block;
-  object-fit: cover;
 }
 
 .contact-bold {
