@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- CSS Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-crk-large.png?"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-crk-small.png?"/>
+
+    <title>Caila Robson-Kullman's Portfolio</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <a href="index.html" class="nav-link"><h2>Caila Robson-Kullman</h2></a>
+      <ul class="navigation">          
+        <li><a href="index.html" class="nav-link selected">Work</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="assets/files/Caila_Robson-Kullman_Resume.pdf" class="nav-link" target="_blank">Resume</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <!-- hamburger menu (hide nav menu on small screens) -->
+      <button class="burger-menu" id="burger-menu">
+        <img src="assets/icons/icon-burger-menu.svg" class="bars" alt="burger-menu">
+      </button>
+    </nav>
+
+    <!-- Section -->
+    <div id="project" class="project">
+      <div class="project-header">
+        <h1>Pathfinder365</h1>
+        <p>Product Design · UX/UI · Full-Stack Development · Tourism</p>
+        <p>Creating a custom booking experience from the ground up.</p>
+      </div>
+      <img src="assets/images/img_shared_spaces.jpg" alt="Pathfinder365">
+
+      <div class="project-container">
+        <p>
+          Pathfinder365 is a Saskatoon-based tourism startup focused on helping travellers discover local experiences. When I joined the team, there was no booking system. I researched existing tourism booking platforms, explored how a booking experience could fit into the existing website, sketched concepts, presented them to the team, translated the selected direction into Figma, and contributed to the technical planning and development of the system.
+        </p>
+      </div>
+
+      <div class="project-container">
+        <p><span class="project-bold">Role</span></p>
+        <p>Product Developer · UX/UI Designer</p>
+        <p><span class="project-bold">Company</span></p>
+        <p>Pathfinder365</p>
+        <p><span class="project-bold">Timeline</span></p>
+        <p>September 2023 – April 2024</p>
+        <p><span class="project-bold">Team</span></p>
+        <ul>
+          <li>Product Developer</li>
+          <li>Full-Stack Developer</li>
+          <li>Full-Stack Developer / Team Lead</li>
+          <li>CEO</li>
+        </ul>
+        <p><span class="project-bold">Focus</span></p>
+        <p>UX Research · Product Design · Booking Systems · Full-Stack Development</p>
+        <p><span class="project-bold">Tools</span></p>
+        <p>MFigma · Visual Studio Code</p>
+        <p><span class="project-bold">Technologies</span></p>
+        <p>TypeScript · Vue.js · Python · FastAPI · SQLAlchemy · Alembic · Docker · Quasar Framework · SQL</p>
+      </div>
+
+      <div class="project-container">
+        <h2>My Contribution</h2>
+        <p>
+          I worked across research, product design, technical planning, and development, specifically:
+        </p>
+        <ul>
+          <li>Researched existing booking platforms and patterns.</li>
+          <li>Defined where booking should fit within the product.</li>
+          <li>Developed and presented booking concepts.</li>
+          <li>Mapped booking flows and architecture.</li>
+          <li>Designed the experience in Figma.</li>
+          <li>Planned frontend, backend, API, and database requirements.</li>
+          <li>Contributed to full-stack implementation.</li>
+        </ul>
+      </div>
+
+      <div class="project-container">
+        <h2>Problem</h2>
+        <p>
+          How might we create a booking experience for a tourism platform when no booking system exists yet?
+        </p>
+        <p>
+          Pathfinder365 needed a way for travellers to move from discovering a tourism experience to completing a reservation.
+        </p>
+        <p>
+          The system also needed to support the different booking requirements of tourism businesses, including availability, capacity, add-ons, ticket types, payments, cancellations, and rescheduling.
+        </p>
+        <p>
+          The challenge was to create a simple booking experience for travellers while building a flexible product architecture that could support different tourism businesses.
+        </p>
+      </div>
+
+      <div class="project-container">
+        <h2>Design Process</h2>
+        <h3>Research</h3>
+        <p>
+            I began by reviewing the existing Pathfinder365 platform and researching established tourism booking services, including Checkfront, Peek Pro, and FareHarbor. I compared their booking flows, information architecture, availability, inventory, add-ons, checkout, cancellation, and rescheduling.
+        </p>
+        <p>
+            I also explored how booking could fit naturally within Pathfinder365 rather than feeling like a separate product.
+        </p>
+
+        <h3>Key Insights</h3>
+        <p>Simple experience, complex system</p>
+        <p>
+            The traveller-facing experience needed to remain straightforward while supporting a flexible underlying system.
+        </p>
+        <p>Different businesses, different inventory</p>
+        <p>
+            Tourism businesses may need to manage everything from staff and equipment to activity capacity and multi-day reservations.
+        </p>
+
+        <p>Booking should feel integrated</p>
+        <p>
+            The experience needed to connect naturally to discovery, allowing travellers to move from finding an activity to reserving it without unnecessary friction.
+        </p>
+
+        <p>What This Meant</p>
+        <p>
+            The booking system needed to hide operational complexity from travellers while giving businesses the flexibility to manage different experiences and inventory.
+        </p>
+
+        <h3>Personas</h3>
+        <p>
+          To better understand the different needs, goals, and behaviours of Pathfinder365’s users, I created personas representing four key user groups: serious travellers, casual travellers, singular business owners, and varied business owners.
+        </p>
+        <p>
+            These personas helped build empathy for the people using the platform and provided a reference point throughout the design process. They also helped identify the different requirements the booking system would need to support across both travellers and tourism businesses.
+        </p>
+        <p>SLIDES</p>
+        <div class="slide-container">
+          <div class="slide slideWorksheet">
+            <img src="assets/images/img_shared_spaces_worksheet1.jpg" alt="Worksheet 1">
+          </div>
+          <div class="slide slideWorksheet">
+            <img src="assets/images/img_shared_spaces_worksheet2.jpg" alt="Worksheet 2">
+          </div>
+          <div class="slide slideWorksheet">
+            <img src="assets/images/img_shared_spaces_worksheet3.jpg" alt="Worksheet 3">
+          </div>
+          <a class="slide-btn prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+          <a class="slide-btn next" onclick="plusSlides(1, 0)">&#10095;</a>
+        </div>
+
+        <h3>Walkthroughs</h3>
+        <p>
+          I conducted walkthroughs by stepping through the platform from the perspective of each persona, considering their goals, needs, and potential pain points.
+        </p>
+        <p>
+          I reviewed key traveller, business, and admin workflows across both desktop and mobile layouts. This helped identify usability issues, inconsistencies, responsive design problems, and areas where the interface could better communicate what users could do next.
+        </p>
+        <p>
+            The walkthroughs resulted in a series of design recommendations that informed subsequent iterations of the product.
+        </p>
+        <p>SLIDES</p>
+        <div class="slide-container">
+          <div class="slide slideWorksheet">
+            <img src="assets/images/img_shared_spaces_worksheet1.jpg" alt="Worksheet 1">
+          </div>
+          <div class="slide slideWorksheet">
+            <img src="assets/images/img_shared_spaces_worksheet2.jpg" alt="Worksheet 2">
+          </div>
+          <div class="slide slideWorksheet">
+            <img src="assets/images/img_shared_spaces_worksheet3.jpg" alt="Worksheet 3">
+          </div>
+          <a class="slide-btn prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+          <a class="slide-btn next" onclick="plusSlides(1, 0)">&#10095;</a>
+        </div>
+
+        <h3>Technical Product Design</h3>
+        <p>
+          Because the booking system was being created from scratch, I considered the underlying product architecture alongside the interface. This included how experiences, availability, reservations, travellers, add-ons, payments, and business payouts would work together, as well as how temporary booking holds could work during checkout.
+        </p>
+
+        <h3>Exploring the Booking Flow</h3>
+        <p>
+            I used sketches to explore the overall booking experience and where it should fit within the existing website.
+        </p>
+        <p>SKETCHES</p>
+        <p>The resulting flow became:</p>
+        <p>Experience → Add-ons → Schedule → Information → Suggestions → Checkout → Confirmation</p>
+
+        <h3>Concepts & Team Review</h3>
+        <p>
+          I presented early concepts to the team, discussed different approaches, and incorporated feedback into the selected direction. The concepts were then translated into detailed Figma designs.  
+        </p>
+        <p>IMAGE</p>
+        <img src="assets/images/img_shared_spaces_affinity1.jpg" alt="Affinity Diagramming 1" loading="lazy">
+
+        <h3>Figma Design</h3>
+        <p>
+            I developed the selected direction in Figma, refining the booking flow, page layouts, information hierarchy, scheduling, add-ons, traveller information, checkout, confirmation, and reservation management.   
+        </p>
+        <h3>FIGMA LINK</h3>
+        <img src="assets/images/img_shared_spaces_clickable_prototype.jpg" alt="Clickable Prototype" loading="lazy">
+        <div class="btn-container">
+          <a href="https://marvelapp.com/prototype/57g2743/screen/68809677" target="_blank">
+            <button class="project-btn"></i>Prototype Link</button>
+          </a>
+        </div>
+
+        <h3>Figma Prototype</h3>
+        <p>
+          Once the booking flow and initial layouts were established, I translated the selected direction into a detailed Figma prototype.  
+        </p>
+        <p>
+            The prototype connected the key steps of the booking experience, allowing the team to review the flow as an interactive experience rather than as individual screens. I used it to refine navigation, information hierarchy, interactions, and the overall progression from discovering an experience through to completing a booking.
+        </p>
+        <p>
+            The clickable prototype also provided a shared reference point for discussing the design with the team and identifying areas that needed further refinement before development.
+        </p>
+        <p>View the mobile interactive prototype in Figma →</p>
+        <div class="btn-container">
+          <a href="https://apps.apple.com/ca/app/shared-spaces/id1582711277" target="_blank">
+            <button class="project-download-btn"></i>Download From the Apple Store</button>
+          </a>
+        </div>
+        <p>View the desktop interactive prototype in Figma →</p>
+        <div class="btn-container">
+          <a href="https://play.google.com/store/apps/details?id=com.DefaultCompany.shared_spaces&pli=1" target="_blank">
+            <button class="project-download-btn"></i>Download From Google Play</button>
+          </a>
+        </div>
+
+        <h3>Iteration</h3>
+        <p>
+            The process moved between research, competitive analysis, sketching, team review, Figma, technical planning, and development.
+        </p>
+        <p>
+            Because the booking system was being built from scratch, the interface and underlying architecture evolved together, with UX decisions influencing the data model, APIs, availability logic, and development requirements.
+        </p>
+
+    </div>
+
+
+      <div class="project-container">
+        <h2>Final Design</h2>
+        <img src="assets/images/img_shared_spaces_final.jpg" alt="Conference" loading="lazy">
+        <p>
+          The final design created a custom booking experience that guided travellers from discovering an experience through scheduling, add-ons, traveller information, payment, confirmation, and reservation management.
+        </p>
+        <p>
+          The interface kept the booking process straightforward while the underlying architecture supported the operational needs of different tourism businesses. I contributed to the full-stack implementation, translating the Figma designs into a working product while considering the technical requirements and architecture needed to support the experience.
+        </p>
+      </div>
+
+      <div class="project-container">
+        <h2>Reflection</h2>
+        <p>
+          This project strengthened my understanding of how UX, product strategy, and development influence one another. Working on the booking system from its earliest stages allowed me to move from research and exploration through design, technical planning, and implementation.
+        </p>
+        <p>
+          With additional development and user feedback, I would continue refining the booking flow and validating the experience with both travellers and tourism operators.
+        </p>
+      </div>
+      
+    </div>  
+
+    <!-- Footer section -->
+    <hr class="divider"></hr>
+    <footer class = "footer">
+      <a href="mailto:caila.robson-kullman@protonmail.com" target="_blank">
+        <img src="assets/icons/icon-email.svg" alt="Email" loading="lazy" class="socicon"/>
+      </a>
+      <a href="https://www.linkedin.com/in/caila-robson-kullman-72b5b3263/" target="_blank">
+        <img src="assets/icons/icon-linkedin.svg" alt="Linkedin" loading="lazy" class="socicon"/>
+      </a>
+    </div>
+      <p>&copy; Caila Robson-Kullman</p>
+    </footer>
+    </section>
+
+    <!-- Scroll section -->
+    <i onclick="topFunction()" class="scroll-up" id="scroll-up">
+      <img src="assets/icons/icon-arrow-up.svg" class="socicon up-arrow" alt="scroll-up">
+    </i>
+
+    <!-- Website scripts -->
+    <script src="assets/js/javascripts.js"></script>
+  </body>
+</html>
