@@ -499,8 +499,10 @@ nav ul li {
 }
 
 .about-img {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 5px;
-  width:100%;
+  width:50%;
 }
 
 .contact-bold {
