@@ -498,13 +498,11 @@ nav ul li {
   padding-left: 1rem;
 }
 
-.about-img {
-  width: 250px;
-  height: 250px;
+.contact-img {
+  width: 50%;
   margin: 1rem auto;
   border-radius: 50%;
   display: block;
-  object-fit: cover;
 }
 
 .contact-bold {
