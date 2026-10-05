@@ -505,6 +505,10 @@ nav ul li {
   display: block;
 }
 
+.contact-bottom {
+  margin-bottom: var(--margin-3);
+}
+
 .contact-bold {
   font-weight: 700;
 }
