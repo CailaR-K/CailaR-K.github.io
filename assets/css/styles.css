@@ -263,9 +263,7 @@ nav ul li {
 }
 
 .project-header p {
-  /*
   padding: var(--padding-2);
-  */
   font-size: 1.3rem;
 }
 
@@ -298,8 +296,8 @@ nav ul li {
 
 .project-details {
   display: grid;
-  grid-template-columns: 75px 1fr;
-  row-gap: 2px;
+  grid-template-columns: 90px 1fr;
+  row-gap: 4px;
 }
 
 .project-details p {
