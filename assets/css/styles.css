@@ -262,8 +262,14 @@ nav ul li {
   padding-bottom: var(--padding-2);
 }
 
+.project-header h1 {
+  padding-bottom: var(--padding-2);
+}
+
 .project-header p {
+  /*
   padding: var(--padding-2);
+  */
   font-size: 1.3rem;
 }
 
