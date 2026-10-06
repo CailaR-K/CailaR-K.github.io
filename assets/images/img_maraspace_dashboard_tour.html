@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>MaraSpace — Take a Tour · Cedar&amp;Stone</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --slate:#465059; --olive:#61735C; --amber:#BF8756; --terra:#A65E44;
+  --teal:#3D7D7A; --forest:#2D5A27;
+  --clay:#F2EDE4; --bubble:#FFFFFF; --border:#E0D8CE; --border-b:#C8BAA8;
+  --ink:#2C2018; --ink-2:#5C4E3C; --ink-3:#8A7A6A;
+  --rp:#61735C; --sw:218px; --th:52px; --r:8px; --rs:5px;
+  --sh:0 1px 3px rgba(0,0,0,0.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:400;background:var(--clay);color:var(--ink);height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+/* ── TOPBAR ─────────────────────────── */
+.topbar{height:var(--th);background:var(--slate);display:flex;align-items:center;flex-shrink:0}
+.tb-brand{width:var(--sw);height:100%;display:flex;align-items:center;padding:0 14px;gap:8px;flex-shrink:0;border-right:1px solid rgba(255,255,255,0.07)}
+.lm{display:flex;align-items:center;gap:1px}
+.lmd{width:9px;height:14px;background:rgba(255,255,255,0.9)}
+.lmd.l{border-radius:0 7px 7px 0}.lmd.r{border-radius:7px 0 0 7px}
+.lmc{width:13px;height:13px;background:var(--amber);border-radius:50%}
+.tb-name{font-size:16px;font-weight:500;color:rgba(255,255,255,0.92);letter-spacing:0.01em}
+.tb-center{flex:1;display:flex;align-items:center;padding:0 16px;gap:10px}
+.tb-search{flex:1;max-width:300px;height:30px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.12);border-radius:15px;padding:0 12px 0 30px;font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.85);outline:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='3.5' stroke='rgba(255,255,255,0.35)' stroke-width='1.2'/%3E%3Cpath d='M8 8L10.5 10.5' stroke='rgba(255,255,255,0.35)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:10px center}
+.tb-search::placeholder{color:rgba(255,255,255,0.3)}
+.tb-tour-btn{display:flex;align-items:center;gap:7px;height:30px;padding:0 13px 0 7px;background:rgba(61,125,122,0.22);border:1px solid rgba(61,125,122,0.45);border-radius:15px;font-family:'DM Sans',Arial,sans-serif;font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.88);cursor:pointer;transition:all 0.15s;white-space:nowrap;flex-shrink:0}
+.tb-tour-btn:hover{background:rgba(61,125,122,0.38);border-color:rgba(61,125,122,0.7);color:white}
+.tb-tour-av{width:20px;height:20px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:10px;font-weight:400;color:white;flex-shrink:0}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:8px;padding-right:16px}
+.tb-ic{width:30px;height:30px;background:rgba(255,255,255,0.09);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.55);position:relative;flex-shrink:0}
+.tb-ic:hover{background:rgba(255,255,255,0.15)}
+.tb-dot{position:absolute;top:-1px;right:-1px;width:7px;height:7px;background:var(--terra);border-radius:50%;border:1.5px solid var(--slate)}
+.tb-profile-pill{display:flex;align-items:center;background:rgba(255,255,255,0.1);border-radius:20px;padding:4px 10px 4px 4px;cursor:pointer;transition:background 0.12s;gap:7px}
+.tb-profile-pill:hover{background:rgba(255,255,255,0.16)}
+.tb-profile-av{width:28px;height:28px;background:var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white}
+.tb-profile-name{font-size:12px;font-weight:500;color:rgba(255,255,255,0.8)}
+
+/* ── LAYOUT ──────────────────────────── */
+.main{display:flex;flex:1;overflow:hidden}
+.sidebar{width:var(--sw);background:var(--slate);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;overflow-x:hidden}
+.sb-nav{padding:10px 8px 0}
+.sbi{display:flex;align-items:center;gap:8px;padding:7px 8px;margin-bottom:1px;border-radius:6px;font-size:12.5px;font-weight:400;color:rgba(255,255,255,0.52);cursor:pointer;transition:all 0.12s}
+.sbi:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.82)}
+.sbi.on{background:var(--amber);color:#fff}
+.sbi svg{width:14px;height:14px;flex-shrink:0;opacity:0.65}.sbi.on svg{opacity:1}
+.sbi-n{margin-left:auto;font-size:10px;font-weight:600;background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.7);padding:1px 5px;border-radius:7px}
+.sbi-n.a{background:var(--terra);color:white}
+.sb-div{height:1px;background:rgba(255,255,255,0.07);margin:8px 8px}
+.sb-sec-lbl{padding:6px 10px 4px;font-size:9.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28)}
+.sb-foot{margin-top:auto;padding:8px;border-top:1px solid rgba(255,255,255,0.07)}
+.sb-user{display:flex;align-items:center;gap:7px;padding:4px 2px}
+.sb-uav{width:26px;height:26px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:white}
+.sb-uname{font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.8)}
+.sb-role{font-size:10px;color:rgba(255,255,255,0.32)}
+
+/* ── CONTENT ──────────────────────────── */
+.page-wrap{display:flex;flex:1;overflow:hidden}
+.content{flex:1;overflow-y:auto;background:var(--clay);display:flex;flex-direction:column}
+.inner{padding:16px 18px;flex:1}
+
+/* ── WIDGETS ──────────────────────────── */
+.w{background:var(--bubble);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);padding:14px 16px}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
+.wt{font-size:12.5px;font-weight:600;color:var(--ink)}
+.wmore{background:none;border:none;color:var(--ink-3);cursor:pointer;font-size:15px;padding:0 2px;line-height:1}
+.wlink{font-size:11px;color:var(--teal);text-decoration:none;cursor:pointer}.wlink:hover{text-decoration:underline}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:11px}
+.mb11{margin-bottom:11px}
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:11px}
+.tab{padding:4px 11px;font-size:11.5px;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.pill{display:inline-flex;padding:2px 7px;border-radius:4px;font-size:10.5px;font-weight:600}
+.pg{background:rgba(45,90,39,0.12);color:#2D5A27}.pa{background:rgba(191,135,86,0.14);color:#9A6030}.pr{background:rgba(166,94,68,0.12);color:#A65E44}
+
+/* ── ALERT BAR ───────────────────────── */
+.alert-bar{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:11px;overflow:hidden;display:flex;align-items:stretch}
+.alert-items{flex:1;display:flex;flex-direction:column}
+.alert-item{display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:11.5px;color:var(--ink-2);cursor:pointer;transition:background 0.1s;border-left:3px solid var(--terra)}
+.alert-item:hover{background:rgba(166,94,68,0.04)}
+.alert-item.alert-warn{border-left-color:var(--amber)}.alert-item.alert-warn:hover{background:rgba(191,135,86,0.04)}
+.alert-item svg{flex-shrink:0;color:var(--terra)}.alert-item.alert-warn svg{color:var(--amber)}
+.alert-item span{flex:1;line-height:1.4}.alert-item strong{color:var(--ink);font-weight:600}
+.alert-act{font-size:11px;font-weight:600;color:var(--teal);text-decoration:none;white-space:nowrap;flex-shrink:0}
+.alert-act:hover{opacity:0.7}
+.alert-close{background:none;border:none;color:var(--ink-3);cursor:pointer;font-size:14px;line-height:1;padding:0 2px;flex-shrink:0;font-family:'DM Sans',Arial,sans-serif}
+.alert-close:hover{color:var(--ink)}
+.alert-sep{height:1px;background:var(--border);margin:0 14px}
+.alert-dismiss-all{flex-shrink:0;background:var(--clay);border:none;border-left:1px solid var(--border);padding:0 14px;font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:500;color:var(--ink-3);cursor:pointer;white-space:nowrap;transition:all 0.1s}
+.alert-dismiss-all:hover{background:var(--border);color:var(--ink)}
+.alert-bar.hidden{display:none}
+
+/* ── DAILY SUMMARY ───────────────────── */
+.daily-summary{background:var(--bubble);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);padding:16px 18px;margin-bottom:11px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.daily-msg h2{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.daily-msg p{font-size:12px;color:var(--ink-3);line-height:1.6}
+.ds-link{color:var(--ink-2);text-decoration:none}.ds-link:hover{color:var(--teal)}
+.ds-link.ds-alert{color:var(--terra)}
+.daily-right{display:flex;flex-direction:column;align-items:flex-end;gap:9px;flex-shrink:0}
+.start-day-btn{display:flex;align-items:center;gap:9px;height:38px;padding:0 16px 0 8px;background:var(--slate);border:none;border-radius:50px;font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.92);cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.15);transition:all 0.15s;white-space:nowrap}
+.start-day-btn:hover{background:#3a4550}
+.start-day-av{width:24px;height:24px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:11px;font-weight:400;color:white;flex-shrink:0}
+.daily-tour-link{font-size:11.5px;font-weight:500;color:var(--teal);background:none;border:none;cursor:pointer;font-family:'DM Sans',Arial,sans-serif;padding:0;display:flex;align-items:center;gap:5px;opacity:0.8;transition:opacity 0.15s}
+.daily-tour-link:hover{opacity:1}
+
+/* ── PERF SNAPSHOT ───────────────────── */
+.perf-snap{background:var(--bubble);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);padding:14px 18px 16px;margin-bottom:11px}
+.perf-snap-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.perf-snap-title{font-size:13px;font-weight:600;color:var(--ink)}
+.perf-range-tabs{display:flex;background:var(--clay);border-radius:5px;padding:2px;gap:1px;border:1px solid var(--border)}
+.prt{font-size:10.5px;font-weight:500;color:var(--ink-3);padding:3px 9px;border-radius:3px;cursor:pointer;transition:all 0.12s;white-space:nowrap}
+.prt.on{background:white;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.perf-body{display:flex;gap:0;align-items:stretch}
+.perf-hero{flex-shrink:0;width:200px;padding-right:20px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.perf-hero-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-3);margin-bottom:6px}
+.perf-hero-val{font-size:36px;font-weight:700;color:var(--ink);letter-spacing:-0.03em;line-height:1}
+.perf-hero-delta{font-size:11.5px;margin-top:7px;display:flex;align-items:center;gap:3px;font-weight:500}
+.perf-hero-delta.up{color:var(--forest)}.perf-hero-delta.dn{color:var(--terra)}
+.perf-hero-sublabel{font-size:10px;color:var(--ink-3);margin-top:4px}
+.perf-secondaries{flex:1;display:grid;grid-template-columns:repeat(5,1fr);padding-left:20px}
+.perf-sec{padding:0 12px 0 0;border-right:1px solid var(--border)}.perf-sec:last-child{border-right:none;padding-right:0}
+.perf-sec+.perf-sec{padding-left:12px}
+.perf-label{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-3);margin-bottom:5px}
+.perf-val{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1}
+.perf-delta{font-size:10px;margin-top:4px}
+.perf-delta.up{color:var(--forest)}.perf-delta.dn{color:var(--terra)}
+.perf-goal-bar-track{height:3px;background:var(--border);border-radius:2px;margin-top:6px;overflow:hidden}
+.perf-goal-bar-fill{height:100%;width:74%;background:var(--olive);border-radius:2px}
+.spark-wrap{margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+.spark-svg{width:100%;height:52px;display:block;overflow:visible}
+.spark-axis{position:relative;height:14px;margin-top:4px}
+
+/* ── OPERATIONS / FULFILLMENT ────────── */
+.ops-thead{display:flex;align-items:center;padding:7px 18px;background:var(--clay);border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:9.5px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)}
+.ops-row{display:flex;align-items:center;padding:11px 18px;border-bottom:0.5px solid var(--border);transition:background 0.1s;cursor:pointer}
+.ops-row:hover{background:rgba(0,0,0,0.015)}
+.ops-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ops-order{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:1px}
+.ops-client{font-size:11px;color:var(--ink-3)}
+.ops-items{font-size:12px;color:var(--ink-2)}
+.ops-val{font-size:13px;font-weight:600;color:var(--ink)}
+.ops-due{font-size:12px;color:var(--ink-2)}
+.ops-badge{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:0.06em;padding:3px 7px;border-radius:4px;white-space:nowrap}
+.ops-badge.awaiting{background:rgba(166,94,68,0.12);color:var(--terra);border:1px solid rgba(166,94,68,0.2)}
+.ops-badge.packing{background:rgba(191,135,86,0.12);color:#9A6030;border:1px solid rgba(191,135,86,0.2)}
+.ops-badge.quote{background:rgba(61,125,122,0.1);color:var(--teal);border:1px solid rgba(61,125,122,0.2)}
+.ops-badge.confirmed{background:rgba(0,0,0,0.05);color:var(--ink-2);border:1px solid var(--border)}
+.ops-badge.shipped{background:rgba(45,90,39,0.1);color:var(--forest);border:1px solid rgba(45,90,39,0.2)}
+.ops-badge.approval{background:rgba(61,125,122,0.1);color:var(--teal);border:1px solid rgba(61,125,122,0.2)}
+.ops-filter{height:26px;padding:0 10px;border-radius:5px;font-family:'DM Sans',Arial,sans-serif;font-size:11.5px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:var(--bubble);color:var(--ink-3);transition:all 0.1s}
+.ops-filter.on{background:var(--slate);color:white;border-color:var(--slate)}
+
+/* ── ACTION CENTRE ───────────────────── */
+.ac-urgent{padding:11px 16px 13px;background:rgba(166,94,68,0.07);border-top:1px solid rgba(166,94,68,0.15);border-bottom:1px solid rgba(166,94,68,0.15);margin-bottom:4px}
+.ac-urgent-eyebrow{display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--terra);margin-bottom:5px}
+.ac-urgent-title{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.ac-urgent-sub{font-size:11px;color:var(--ink-2);margin-bottom:8px;line-height:1.4}
+.ac-urgent-btn{font-size:11px;font-weight:600;color:var(--terra);text-decoration:none}
+.ac-item{display:flex;align-items:center;gap:10px;padding:8px 16px;border-bottom:0.5px solid var(--border);cursor:pointer;transition:background 0.1s}
+.ac-item:hover{background:rgba(0,0,0,0.015)}
+.ac-pri{width:3px;height:28px;border-radius:2px;flex-shrink:0}
+.ac-pri.high{background:var(--terra)}.ac-pri.med{background:var(--amber)}.ac-pri.low{background:var(--border)}
+.ac-body{flex:1}
+.ac-title{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:1px}
+.ac-sub{font-size:10.5px;color:var(--ink-3)}
+.ac-count{font-size:13px;font-weight:700;color:var(--ink-2)}
+
+/* ── MARAAI PREDICTS ─────────────────── */
+.mp-item{padding:10px 16px;border-bottom:0.5px solid var(--border)}
+.mp-actions{display:flex;align-items:center;gap:8px;padding-left:14px}
+.mp-act{font-size:11px;font-weight:600;color:var(--teal);text-decoration:none}.mp-act:hover{opacity:0.7}
+.mp-dismiss{font-size:11px;color:var(--ink-3);background:none;border:none;cursor:pointer;padding:0;font-family:'DM Sans',Arial,sans-serif}
+.pdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.pdot.h{background:var(--terra)}.pdot.w{background:var(--amber)}.pdot.c{background:var(--teal)}
+.pct{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:1px;line-height:1.4}
+.pctime{font-size:10px;color:var(--ink-3);margin-top:2px}
+
+/* ── TRENDING ────────────────────────── */
+.trend-item{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--border)}
+.trend-item:last-child{border-bottom:none}
+.trend-rank{font-size:12px;font-weight:700;color:var(--ink-3);width:16px;flex-shrink:0;text-align:center}
+.trend-name{font-size:12.5px;font-weight:500;color:var(--ink)}
+.trend-sub{font-size:11px;color:var(--ink-3)}
+.trend-delta{font-size:11.5px;font-weight:600;color:var(--forest);white-space:nowrap}
+.trend-delta.dn{color:var(--terra)}
+.trend-bar{height:4px;border-radius:2px;background:var(--teal)}
+
+/* ── INVENTORY / FOLLOW-UPS ──────────── */
+.inv-r{display:flex;align-items:center;gap:6px;padding:6px 0;border-bottom:0.5px solid var(--border);font-size:12px}
+.inv-r:last-child{border-bottom:none}
+.cfu-item{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:0.5px solid var(--border);transition:background 0.1s;cursor:pointer}
+.cfu-item:hover{background:rgba(0,0,0,0.015)}
+.cfu-av{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0}
+.cfu-body{flex:1;min-width:0}
+.cfu-name{font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:1px}
+.cfu-sub{font-size:11.5px;color:var(--ink-2);margin-bottom:2px}
+.cfu-alert{font-size:11px;color:var(--terra)}
+.cfu-note{font-size:11px;color:var(--ink-3)}
+.cfu-btn{flex-shrink:0;height:26px;padding:0 10px;border-radius:5px;font-family:'DM Sans',Arial,sans-serif;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:var(--bubble);color:var(--ink-2);transition:all 0.1s;white-space:nowrap}
+.cfu-btn:hover{background:var(--clay);color:var(--ink)}
+.oc{background:rgba(166,94,68,0.1);border-radius:6px;padding:11px 13px;position:relative;overflow:hidden;margin-bottom:10px}
+
+/* ── ASK MARA ────────────────────────── */
+.mara-overlay{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:49;pointer-events:none;transition:background 0.25s}
+.mara-overlay.open{background:rgba(0,0,0,0.3);pointer-events:all}
+.mara-drawer{position:fixed;bottom:22px;right:56px;width:340px;height:520px;border-radius:16px;background:#3a454f;display:flex;flex-direction:column;z-index:50;transform:translateY(calc(100% + 22px));transform-origin:bottom right;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1),opacity 0.3s;opacity:0;pointer-events:none;box-shadow:0 -4px 32px rgba(0,0,0,0.32),0 8px 24px rgba(0,0,0,0.2)}
+.mara-drawer.open{transform:translateY(0);opacity:1;pointer-events:all}
+.mara-drawer-hd{display:flex;align-items:center;gap:10px;padding:16px 16px 14px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0;background:rgba(0,0,0,0.12)}
+.mara-drawer-av{width:34px;height:34px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:15px;font-weight:400;color:white;flex-shrink:0}
+.mara-drawer-title{font-size:14px;font-weight:600;color:rgba(255,255,255,0.95);flex:1}
+.mara-drawer-sub{font-size:10.5px;color:rgba(255,255,255,0.38);margin-top:1px}
+.mara-drawer-close{background:rgba(255,255,255,0.08);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,0.45);flex-shrink:0}
+.mara-drawer-close:hover{background:rgba(255,255,255,0.15)}
+.mara-drawer-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:6px}
+.mara-drawer-footer{padding:12px 14px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;background:rgba(0,0,0,0.1)}
+.mara-drawer .mq{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:9px 12px;font-size:11.5px;color:rgba(255,255,255,0.7);cursor:pointer;width:100%;text-align:left;font-family:"DM Sans",Arial,sans-serif;transition:all 0.15s;line-height:1.4}
+.mara-drawer .mq:hover{background:rgba(61,125,122,0.25);border-color:var(--teal);color:rgba(255,255,255,0.95)}
+.mara-section-label{font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin:10px 0 6px}
+.mara-drawer .m-f{flex:1;height:38px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:0 12px;font-family:"DM Sans",Arial,sans-serif;font-size:12.5px;color:rgba(255,255,255,0.9);outline:none}
+.mara-drawer .m-f::placeholder{color:rgba(255,255,255,0.28)}
+.mara-drawer .m-f:focus{border-color:var(--teal)}
+.mara-drawer .m-send{height:38px;width:38px;background:var(--teal);border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.mara-fab{position:fixed;bottom:22px;right:56px;z-index:48;background:var(--slate);border:2px solid rgba(255,255,255,0.12);border-radius:50px;height:44px;padding:0 18px 0 8px;display:flex;align-items:center;gap:9px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);font-family:"DM Sans",Arial,sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.92);transition:all 0.15s}
+.mara-fab:hover{background:#3a4550}
+.mara-fab-av{width:30px;height:30px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:13px;font-weight:400;color:white;box-shadow:0 2px 8px rgba(61,125,122,0.5)}
+.mara-recent-chat{width:100%;background:none;border:none;border-radius:6px;padding:7px 9px;font-family:'DM Sans',Arial,sans-serif;font-size:12px;color:rgba(255,255,255,0.65);cursor:pointer;text-align:left;transition:all 0.12s;display:flex;align-items:center;gap:8px}
+.mara-recent-chat:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.9)}
+
+/* ── FOCUS CENTRE ────────────────────── */
+.fc-section{padding:14px;border-radius:8px;background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.07);margin-bottom:8px}
+.fc-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.fc-label{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38)}
+.fc-more{background:none;border:none;color:rgba(255,255,255,0.25);cursor:pointer;font-size:14px;padding:0;line-height:1}
+.fc-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:10px}
+.fc-tab{font-size:10.5px;font-weight:500;color:rgba(255,255,255,0.35);padding:3px 9px 5px;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.12s}
+.fc-tab.on{color:rgba(255,255,255,0.88);border-bottom-color:rgba(255,255,255,0.6)}
+.fc-date{font-size:10.5px;font-weight:500;color:rgba(255,255,255,0.35);margin-bottom:6px}
+.fc-si{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:flex-start}
+.fc-st{font-size:10px;font-weight:600;color:rgba(255,255,255,0.32);white-space:nowrap;min-width:42px;padding-top:2px}
+.fc-sd{width:3px;border-radius:2px;margin:2px 0;align-self:stretch;flex-shrink:0}
+.fc-sd.amber{background:var(--amber)}.fc-sd.teal{background:var(--teal)}.fc-sd.terra{background:var(--terra)}
+.fc-sn{font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.78);line-height:1.3}
+.fc-ss{font-size:10.5px;color:rgba(255,255,255,0.32);margin-top:1px}
+.fc-period-tabs{display:flex;gap:2px;margin-bottom:10px}
+.fc-period{font-size:10.5px;font-weight:500;color:rgba(255,255,255,0.35);padding:3px 8px;border-radius:4px;cursor:pointer;transition:all 0.12s}
+.fc-period.on{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85)}
+.fc-bar-row{padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.fc-bar-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.fc-bar-name{font-size:11.5px;color:rgba(255,255,255,0.65)}
+.fc-bar-val{font-size:11.5px;font-weight:600;color:rgba(255,255,255,0.85)}
+.fc-bar-track{height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden}
+.fc-bar-fill{height:100%;border-radius:2px}
+.fc-task{display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:11.5px}
+.fc-cb{width:12px;height:12px;border:1.5px solid rgba(255,255,255,0.22);border-radius:3px;flex-shrink:0;cursor:pointer}
+.fc-tn{color:rgba(255,255,255,0.72)}
+.fc-tn.done{text-decoration:line-through;color:rgba(255,255,255,0.28)}
+.fc-add-task{display:flex;align-items:center;gap:7px;padding:7px 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:2px}
+.fc-add-icon{width:12px;height:12px;border:1.5px dashed rgba(255,255,255,0.18);border-radius:3px;flex-shrink:0}
+.fc-add-input{flex:1;background:none;border:none;outline:none;font-family:'DM Sans',Arial,sans-serif;font-size:11.5px;color:rgba(255,255,255,0.72)}
+.fc-add-input::placeholder{color:rgba(255,255,255,0.22)}
+.fc-act{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.fc-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.fc-act-t{font-size:11.5px;color:rgba(255,255,255,0.72);line-height:1.4}
+.fc-act-t strong{color:rgba(255,255,255,0.88);font-weight:600}
+.fc-act-s{font-size:10px;color:rgba(255,255,255,0.3);margin-top:2px}
+.fc-note{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06);cursor:pointer}
+.fc-note-t{font-size:11.5px;color:rgba(255,255,255,0.72);line-height:1.3}
+.fc-note-s{font-size:10px;color:rgba(255,255,255,0.3);margin-top:2px}
+.fc-textarea{width:100%;min-height:64px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:5px;padding:8px 10px;font-family:'DM Sans',Arial,sans-serif;font-size:11.5px;color:rgba(255,255,255,0.72);resize:vertical;outline:none;line-height:1.5;margin-top:8px}
+.fc-textarea::placeholder{color:rgba(255,255,255,0.22)}
+.fc-bm{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:11.5px;color:rgba(255,255,255,0.68);cursor:pointer}
+.fc-bm:hover{color:rgba(255,255,255,0.9)}
+.fc-bm-arrow{color:rgba(255,255,255,0.25);font-size:13px}
+
+/* ══════════════════════════════════════
+   TOUR SYSTEM
+══════════════════════════════════════ */
+#tourBackdrop {
+  display:none; position:fixed; inset:0; z-index:500; cursor:default;
+}
+/* No-target mode: dark scrim */
+#tourBackdrop.no-target { background:rgba(44,32,24,0.78); }
+
+#tourSpotlight {
+  display:none; position:fixed; z-index:501; pointer-events:none;
+  border-radius:12px;
+  transition:left 0.38s cubic-bezier(0.4,0,0.2,1),
+             top 0.38s cubic-bezier(0.4,0,0.2,1),
+             width 0.38s cubic-bezier(0.4,0,0.2,1),
+             height 0.38s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:
+    0 0 0 9999px rgba(44,32,24,0.74),
+    0 0 0 2px #3D7D7A,
+    0 0 0 6px rgba(61,125,122,0.2),
+    0 12px 40px rgba(0,0,0,0.4);
+}
+
+#tourCard {
+  display:none; position:fixed; width:360px; z-index:502;
+  background:white; border-radius:18px;
+  box-shadow:0 28px 72px rgba(44,32,24,0.26),0 4px 18px rgba(44,32,24,0.1);
+  overflow:hidden;
+  transition:top 0.38s cubic-bezier(0.4,0,0.2,1), left 0.38s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes tourCardIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.tour-card-animate { animation: tourCardIn 0.3s ease-out forwards; }
+
+.tc-header {
+  display:flex; align-items:center; gap:12px;
+  padding:16px 18px 15px;
+  background:#FAF8F5;
+  border-bottom:1px solid #EDE6DB;
+}
+.tc-mara-av {
+  width:38px; height:38px; background:var(--teal); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'DM Serif Display',serif; font-size:17px; font-weight:400; color:white;
+  flex-shrink:0; position:relative;
+  box-shadow:0 2px 12px rgba(61,125,122,0.4);
+}
+.tc-mara-av::after {
+  content:''; position:absolute; inset:-4px; border-radius:50%;
+  border:2px solid rgba(61,125,122,0.35);
+  animation: maraRing 2.2s ease-in-out infinite;
+}
+@keyframes maraRing {
+  0%,100% { transform:scale(1); opacity:0.6; }
+  50% { transform:scale(1.14); opacity:0; }
+}
+.tc-meta { flex:1; }
+.tc-step { font-size:9.5px; font-weight:700; letter-spacing:0.13em; text-transform:uppercase; color:var(--teal); margin-bottom:2px; }
+.tc-name { font-size:12px; font-weight:600; color:var(--slate); }
+
+.tc-body { padding:20px 20px 8px; }
+.tc-title {
+  font-family:'DM Serif Display',serif; font-size:21px; font-weight:400;
+  color:var(--slate); margin-bottom:10px; letter-spacing:-0.01em; line-height:1.25;
+}
+.tc-text {
+  font-size:13px; font-weight:300; color:var(--ink-2); line-height:1.72; margin-bottom:18px;
+  text-wrap:pretty;
+}
+
+.tc-dots { display:flex; align-items:center; gap:5px; margin-bottom:18px; }
+.tc-dot {
+  width:7px; height:7px; border-radius:50%; background:var(--border);
+  transition:all 0.22s; cursor:pointer; flex-shrink:0;
+}
+.tc-dot:hover { background:var(--ink-3); }
+.tc-dot.done { background:var(--teal); }
+.tc-dot.active { width:22px; border-radius:4px; background:var(--amber); }
+
+.tc-footer {
+  display:flex; align-items:center; gap:8px;
+  padding:12px 20px 18px;
+}
+.tc-btn-back {
+  display:inline-flex; align-items:center; justify-content:center;
+  height:36px; padding:0 15px; border-radius:9px;
+  background:none; border:1.5px solid var(--border);
+  font-family:'DM Sans',Arial,sans-serif; font-size:12.5px; font-weight:500;
+  color:var(--ink-2); cursor:pointer; transition:all 0.15s; white-space:nowrap;
+}
+.tc-btn-back:hover { border-color:var(--teal); color:var(--teal); }
+.tc-btn-next {
+  height:36px; padding:0 20px; border-radius:9px;
+  background:var(--amber); border:none;
+  font-family:'DM Sans',Arial,sans-serif; font-size:12.5px; font-weight:600;
+  color:white; cursor:pointer; transition:all 0.15s; white-space:nowrap;
+  box-shadow:0 2px 10px rgba(191,135,86,0.38);
+}
+.tc-btn-next:hover { filter:brightness(1.08); box-shadow:0 4px 16px rgba(191,135,86,0.48); }
+.tc-btn-skip {
+  margin-left:auto; background:none; border:none;
+  font-family:'DM Sans',Arial,sans-serif; font-size:11.5px; font-weight:400;
+  color:var(--ink-3); cursor:pointer; padding:0; transition:color 0.15s;
+}
+.tc-btn-skip:hover { color:var(--ink); }
+
+/* Tour accent + dim via CSS vars */
+:root { --tour-accent:#3D7D7A; }
+.tc-mara-av { background:var(--tour-accent) !important; box-shadow:0 2px 12px color-mix(in srgb, var(--tour-accent) 40%, transparent) !important; }
+.tc-mara-av::after { border-color:var(--tour-accent) !important; }
+.tc-dot.done { background:var(--tour-accent) !important; }
+
+/* Subtle pointer arrow on card */
+.tc-arrow {
+  position:absolute; width:13px; height:13px; background:white;
+  transform:rotate(45deg); z-index:503;
+  box-shadow:-2px -2px 5px rgba(0,0,0,0.06);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ══════════════════════ -->
+<div class="topbar">
+  <div class="tb-brand">
+    <div class="lm"><div class="lmd l"></div><div class="lmc"></div><div class="lmd r"></div></div>
+    <div class="tb-name">Cedar&amp;Stone</div>
+  </div>
+  <div class="tb-center">
+    <input class="tb-search" placeholder="Search customers, products, vendors…">
+    <button class="tb-tour-btn" onclick="startTour()">
+      <div class="tb-tour-av">M</div>
+      Take a tour
+    </button>
+  </div>
+  <div class="tb-right">
+    <div class="tb-ic">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2.5h10a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H8l-3 2.5V9.5H3a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1z" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      <div class="tb-dot"></div>
+    </div>
+    <div class="tb-ic">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 2a3.5 3.5 0 0 0-3.5 3.5c0 1.8-.5 2.8-1 3.5h9c-.5-.7-1-1.7-1-3.5A3.5 3.5 0 0 0 7 2z" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-linejoin="round"/>
+        <path d="M5.5 9.5a1.5 1.5 0 0 0 3 0" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="tb-profile-pill">
+      <div class="tb-profile-av">T</div>
+      <div class="tb-profile-name">Tamara B.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAIN ════════════════════════ -->
+<div class="main">
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="tourTargetSidebar">
+  <div class="sb-nav">
+    <div class="sbi on">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6.5" height="6.5" rx="1.2" fill="currentColor"/><rect x="8.5" y="1" width="6.5" height="6.5" rx="1.2" fill="currentColor" opacity=".5"/><rect x="1" y="8.5" width="6.5" height="6.5" rx="1.2" fill="currentColor" opacity=".5"/><rect x="8.5" y="8.5" width="6.5" height="6.5" rx="1.2" fill="currentColor" opacity=".5"/></svg>
+      Dashboard
+    </div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.5" r="2.8" stroke="currentColor" stroke-width="1.2"/><path d="M2 13c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Customers
+      <span class="sbi-n">28</span>
+    </div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M5 3V2h6v1" stroke="currentColor" stroke-width="1.2"/></svg>
+      Inventory
+    </div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="4.5" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 13c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M11 9c1.5.5 2.5 2 2.5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Team
+    </div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 6.5L3.5 2h9L14 6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 6.5h12v7a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V6.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+      Vendors
+    </div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 4h4l-3.5 2.5 1.5 4L8 10l-3.5 2.5 1.5-4L2.5 6h4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      Opportunities
+      <span class="sbi-n a">3</span>
+    </div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 11.5l3-4.5 3 3 3-5 3 3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Analytics
+    </div>
+    <div class="sb-div" style="margin-top:10px"></div>
+    <div class="sb-sec-lbl">Tools</div>
+    <div class="sbi">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="3" y="1.5" width="10" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Document Hub
+    </div>
+    <div class="sbi" style="opacity:0.38;cursor:default">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 3.5h12a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H9l-3.5 2.5V11.5H3a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      Comm Hub
+    </div>
+  </div>
+  <div class="sb-foot">
+    <div class="sb-user">
+      <div class="sb-uav">T</div>
+      <div><div class="sb-uname">Tamara B.</div><div class="sb-role">Owner · Plus</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE WRAP -->
+<div class="page-wrap">
+<div class="content" id="dashContent">
+<div class="inner">
+
+  <!-- ALERT BAR -->
+  <div class="alert-bar" id="alertBar">
+    <div class="alert-items" id="alertItems">
+      <div class="alert-item" onclick="dismissAlert(this)">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M6 4v2.5M6 8h.01" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span><strong>Shipment delayed</strong> — ORD-8815 (Nordic Shelf ×3) now arriving May 19</span>
+        <a href="#" class="alert-act">View order</a>
+        <button class="alert-close" onclick="event.stopPropagation();dismissAlert(this.closest('.alert-item'))">×</button>
+      </div>
+      <div class="alert-sep"></div>
+      <div class="alert-item alert-warn" onclick="dismissAlert(this)">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1.5L11 10.5H1L6 1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 5v2M6 8.5h.01" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span><strong>Quote expiring today</strong> — #Q442 sent to Sarah Chen, no response in 3 days</span>
+        <a href="#" class="alert-act">Follow up</a>
+        <button class="alert-close" onclick="event.stopPropagation();dismissAlert(this.closest('.alert-item'))">×</button>
+      </div>
+      <div class="alert-sep"></div>
+      <div class="alert-item alert-warn" onclick="dismissAlert(this)">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M6 1.5L11 10.5H1L6 1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 5v2M6 8.5h.01" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <span><strong>No response in 5 days</strong> — Westgate Hotel, approval needed on ORD-8808</span>
+        <a href="#" class="alert-act">Send reminder</a>
+        <button class="alert-close" onclick="event.stopPropagation();dismissAlert(this.closest('.alert-item'))">×</button>
+      </div>
+    </div>
+    <button class="alert-dismiss-all" onclick="dismissAllAlerts()">Dismiss all</button>
+  </div>
+
+  <!-- DAILY SUMMARY -->
+  <div class="daily-summary" id="tourTargetDaily">
+    <div class="daily-msg">
+      <h2>Good morning, Tamara — here's your day</h2>
+      <p><a href="#" class="ds-link">3 customer meetings</a> · <a href="#" class="ds-link ds-alert">2 overdue tasks</a> · <a href="#" class="ds-link">1 new vendor catalogue</a> · <a href="#" class="ds-link">7 customer sessions yesterday</a> · <a href="#" class="ds-link">3 hot opportunities waiting for follow-up</a>.</p>
+    </div>
+    <div class="daily-right">
+      <button class="start-day-btn" id="tourTargetStartDay" onclick="startMyDay()">
+        <div class="start-day-av">M</div>
+        Start my day
+      </button>
+      <button class="daily-tour-link" onclick="startTour()">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M6 4.5v.5a1 1 0 0 1 1-1 1.2 1.2 0 1 0-1.2-1.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6" cy="8.5" r=".5" fill="currentColor"/></svg>
+        Take a tour with Mara
+      </button>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE SNAPSHOT -->
+  <div class="perf-snap" id="tourTargetPerf">
+    <div class="perf-snap-hd">
+      <span class="perf-snap-title">Performance Snapshot</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="perf-range-tabs">
+          <span class="prt on" data-days="7">7d</span>
+          <span class="prt" data-days="30">30d</span>
+          <span class="prt" data-days="90">3m</span>
+          <span class="prt" data-days="365">1y</span>
+        </div>
+        <button class="wmore">···</button>
+      </div>
+    </div>
+    <div class="perf-body">
+      <div class="perf-hero">
+        <div class="perf-hero-label">Revenue</div>
+        <div class="perf-hero-val">$84.2K</div>
+        <div class="perf-hero-delta up">↑ 12.4% vs last period</div>
+        <div class="perf-hero-sublabel" id="sparkRangeLabel">Last 7 days</div>
+      </div>
+      <div class="perf-secondaries">
+        <div class="perf-sec"><div class="perf-label">Orders</div><div class="perf-val">342</div><div class="perf-delta up">↑ 8.1%</div></div>
+        <div class="perf-sec"><div class="perf-label">Clients</div><div class="perf-val">1,204</div><div class="perf-delta up">↑ 3.2%</div></div>
+        <div class="perf-sec"><div class="perf-label">Conversion</div><div class="perf-val">6.8%</div><div class="perf-delta dn">↓ 1.2%</div></div>
+        <div class="perf-sec"><div class="perf-label">Satisfaction</div><div class="perf-val">4.7<span style="font-size:12px;font-weight:400;color:var(--ink-3)"> /5</span></div><div class="perf-delta up">↑ 0.2</div></div>
+        <div class="perf-sec"><div class="perf-label">Goal</div><div class="perf-val">74%</div><div class="perf-goal-bar-track"><div class="perf-goal-bar-fill"></div></div></div>
+      </div>
+    </div>
+    <div class="spark-wrap">
+      <svg id="sparkSvg" class="spark-svg" viewBox="0 0 700 52" preserveAspectRatio="none"></svg>
+      <div class="spark-axis" id="sparkAxis"></div>
+    </div>
+  </div>
+
+  <!-- FULFILLMENT QUEUE -->
+  <div class="w mb11" id="tourTargetQueue" style="padding:0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:15px 18px 10px">
+      <div>
+        <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px">Fulfillment Queue</div>
+        <div style="font-size:11px;color:var(--ink-3)">Sorted by urgency · today's orders requiring action</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="display:flex;align-items:center;gap:4px">
+          <button class="ops-filter on">All</button>
+          <button class="ops-filter">Urgent</button>
+          <button class="ops-filter">Pending</button>
+          <button class="ops-filter">Shipped</button>
+          <button class="wmore" style="margin-left:3px">···</button>
+        </div>
+        <a href="#" style="font-size:12px;color:var(--terra);text-decoration:none;font-weight:500;white-space:nowrap">Open fulfillment center →</a>
+      </div>
+    </div>
+    <div class="ops-thead">
+      <div style="flex:2.8">ORDER / CLIENT</div>
+      <div style="flex:3">ITEMS</div>
+      <div style="flex:1;text-align:right">VALUE</div>
+      <div style="flex:0.8;text-align:center">DUE</div>
+      <div style="flex:1.3;text-align:right">STATUS</div>
+    </div>
+    <div class="ops-row"><div style="flex:2.8;display:flex;align-items:center;gap:8px"><span class="ops-dot" style="background:var(--terra)"></span><div><div class="ops-order">ORD-8821</div><div class="ops-client">Milan Condo — Sarah K.</div></div></div><div style="flex:3" class="ops-items">Brixton Sofa ×2, Cove Sconce ×4</div><div style="flex:1;text-align:right" class="ops-val">$14,200</div><div style="flex:0.8;text-align:center" class="ops-due">Today</div><div style="flex:1.3;text-align:right"><span class="ops-badge awaiting">AWAITING DISPATCH</span></div></div>
+    <div class="ops-row"><div style="flex:2.8;display:flex;align-items:center;gap:8px"><span class="ops-dot" style="background:var(--amber)"></span><div><div class="ops-order">ORD-8819</div><div class="ops-client">Langford Reno — James P.</div></div></div><div style="flex:3" class="ops-items">Haddix Mirror ×1, Rova Table ×2</div><div style="flex:1;text-align:right" class="ops-val">$6,800</div><div style="flex:0.8;text-align:center" class="ops-due">Today</div><div style="flex:1.3;text-align:right"><span class="ops-badge packing">PACKING</span></div></div>
+    <div class="ops-row"><div style="flex:2.8;display:flex;align-items:center;gap:8px"><span class="ops-dot" style="background:var(--teal)"></span><div><div class="ops-order">ORD-8817</div><div class="ops-client">Borden Cottage — Elle M.</div></div></div><div style="flex:3" class="ops-items">Wilton Lamp ×6</div><div style="flex:1;text-align:right" class="ops-val">$4,320</div><div style="flex:0.8;text-align:center" class="ops-due">May 14</div><div style="flex:1.3;text-align:right"><span class="ops-badge quote">QUOTE PENDING</span></div></div>
+    <div class="ops-row"><div style="flex:2.8;display:flex;align-items:center;gap:8px"><span class="ops-dot" style="background:var(--forest)"></span><div><div class="ops-order">ORD-8815</div><div class="ops-client">Willow Bay — Chris L.</div></div></div><div style="flex:3" class="ops-items">Nordic Shelf ×3, Throw ×5</div><div style="flex:1;text-align:right" class="ops-val">$8,950</div><div style="flex:0.8;text-align:center" class="ops-due">May 15</div><div style="flex:1.3;text-align:right"><span class="ops-badge confirmed">CONFIRMED</span></div></div>
+    <div class="ops-row"><div style="flex:2.8;display:flex;align-items:center;gap:8px"><span class="ops-dot" style="background:var(--teal)"></span><div><div class="ops-order">ORD-8812</div><div class="ops-client">Riverbend — Ana T.</div></div></div><div style="flex:3" class="ops-items">Brixton Sofa ×1</div><div style="flex:1;text-align:right" class="ops-val">$7,400</div><div style="flex:0.8;text-align:center" class="ops-due">May 16</div><div style="flex:1.3;text-align:right"><span class="ops-badge shipped">SHIPPED</span></div></div>
+    <div class="ops-row" style="border-bottom:none"><div style="flex:2.8;display:flex;align-items:center;gap:8px"><span class="ops-dot" style="background:var(--teal)"></span><div><div class="ops-order">ORD-8808</div><div class="ops-client">Westgate Hotel</div></div></div><div style="flex:3" class="ops-items">Cove Sconce ×18, Mirror ×3</div><div style="flex:1;text-align:right" class="ops-val">$22,600</div><div style="flex:0.8;text-align:center" class="ops-due">May 18</div><div style="flex:1.3;text-align:right"><span class="ops-badge approval">APPROVAL NEEDED</span></div></div>
+    <div style="padding:11px 18px;border-top:1px solid var(--border);text-align:right"><a href="#" class="wlink">View all 34 orders →</a></div>
+  </div>
+
+  <!-- 3-COL: Action Centre + MaraAI Predicts + Trending -->
+  <div class="g3" id="tourTargetInsights">
+
+    <!-- Action Centre -->
+    <div class="w" style="padding:0;overflow:hidden">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px">
+        <span class="wt">Action Centre</span>
+        <button class="wmore">···</button>
+      </div>
+      <div class="ac-urgent">
+        <div class="ac-urgent-eyebrow"><span>🔴</span><span>Do this first</span></div>
+        <div class="ac-urgent-title">Project deadline approaching</div>
+        <div class="ac-urgent-sub">Walter Update — Bowden Cottage &amp; Larchier Lounge due today</div>
+        <a href="#" class="ac-urgent-btn">Open Project →</a>
+      </div>
+      <div class="ac-item"><div class="ac-pri high"></div><div class="ac-body"><div class="ac-title">3 overdue tasks</div><div class="ac-sub">2 high priority · assigned to you</div></div><span class="ac-count">3</span></div>
+      <div class="ac-item"><div class="ac-pri med"></div><div class="ac-body"><div class="ac-title">Products pending approval</div><div class="ac-sub">Awaiting your sign-off</div></div><span class="ac-count">3</span></div>
+      <div class="ac-item"><div class="ac-pri med"></div><div class="ac-body"><div class="ac-title">Vendor catalogues to review</div><div class="ac-sub">Bralorne, Jubilee &amp; Co, Lalibur</div></div><span class="ac-count">7</span></div>
+      <div class="ac-item" style="border-bottom:none"><div class="ac-pri low"></div><div class="ac-body"><div class="ac-title">Items in progress</div><div class="ac-sub">No action needed yet</div></div><span class="ac-count">8</span></div>
+      <div style="padding:10px 16px;border-top:1px solid var(--border);text-align:right"><a href="#" class="wlink">View full queue →</a></div>
+    </div>
+
+    <!-- MaraAI Predicts -->
+    <div class="w" style="padding:0;overflow:hidden">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px">
+        <span class="wt">MaraAI Predicts</span>
+        <button class="wmore">···</button>
+      </div>
+      <div class="mp-item"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px"><div class="pdot w" style="margin-top:4px;flex-shrink:0"></div><div><div class="pct">Mid-century styling will be highest-engaged this week</div><div class="pctime">Just now</div></div></div><div class="mp-actions"><a href="#" class="mp-act">Feature it →</a><button class="mp-dismiss" onclick="this.closest('.mp-item').style.display='none'">Dismiss</button></div></div>
+      <div class="mp-item"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px"><div class="pdot h" style="margin-top:4px;flex-shrink:0"></div><div><div class="pct">Bundle: Mathew Home + Five Greens — +22% per session</div><div class="pctime">2h ago</div></div></div><div class="mp-actions"><a href="#" class="mp-act">Create bundle →</a><button class="mp-dismiss" onclick="this.closest('.mp-item').style.display='none'">Dismiss</button></div></div>
+      <div class="mp-item"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px"><div class="pdot h" style="margin-top:4px;flex-shrink:0"></div><div><div class="pct">Blankie Laura 3751 expected to stock out in April</div><div class="pctime">3h ago</div></div></div><div class="mp-actions"><a href="#" class="mp-act">Reorder now →</a><button class="mp-dismiss" onclick="this.closest('.mp-item').style.display='none'">Dismiss</button></div></div>
+      <div class="mp-item" style="border-bottom:none"><div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:7px"><div class="pdot c" style="margin-top:4px;flex-shrink:0"></div><div><div class="pct">Lighting expected 12% boost over the holidays</div><div class="pctime">Yesterday</div></div></div><div class="mp-actions"><a href="#" class="mp-act">Review catalogue →</a><button class="mp-dismiss" onclick="this.closest('.mp-item').style.display='none'">Dismiss</button></div></div>
+      <div style="padding:10px 16px;border-top:1px solid var(--border);text-align:right"><a href="#" class="wlink">See more insights →</a></div>
+    </div>
+
+    <!-- Trending -->
+    <div class="w">
+      <div class="wh"><span class="wt">Trending This Week</span><button class="wmore">···</button></div>
+      <div class="tabs" style="margin-bottom:10px">
+        <div class="tab on">Products</div><div class="tab">Customers</div><div class="tab">Vendors</div><div class="tab">Personas</div>
+      </div>
+      <div class="trend-item"><span class="trend-rank">1</span><div style="flex:1"><div class="trend-name">Walnut Console — Natural</div><div class="trend-sub">41 saves this month</div></div><div class="trend-bar" style="width:60px"></div><span class="trend-delta">+22%</span></div>
+      <div class="trend-item"><span class="trend-rank">2</span><div style="flex:1"><div class="trend-name">Linen Sectional — Fog</div><div class="trend-sub">38 saves this month</div></div><div class="trend-bar" style="width:52px"></div><span class="trend-delta">+18%</span></div>
+      <div class="trend-item"><span class="trend-rank">3</span><div style="flex:1"><div class="trend-name">Japandi Purist</div><div class="trend-sub">Persona · 31% of sessions</div></div><div class="trend-bar" style="width:44px;background:var(--olive)"></div><span class="trend-delta">+9%</span></div>
+      <div class="trend-item"><span class="trend-rank">4</span><div style="flex:1"><div class="trend-name">Oak Dining Table — 72"</div><div class="trend-sub">29 saves this month</div></div><div class="trend-bar" style="width:38px"></div><span class="trend-delta">+6%</span></div>
+      <div class="trend-item"><span class="trend-rank">5</span><div style="flex:1"><div class="trend-name">Nordic Nomad</div><div class="trend-sub">Persona · 18% of sessions</div></div><div class="trend-bar" style="width:28px;background:var(--olive)"></div><span class="trend-delta dn">-2%</span></div>
+      <div style="margin-top:8px"><a href="#" class="wlink">Full Trend Report →</a></div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM 3-COL -->
+  <div class="g3">
+    <!-- Inventory -->
+    <div class="w">
+      <div class="wh"><span class="wt">Inventory Snapshot</span><button class="wmore">···</button></div>
+      <div class="inv-r"><span style="flex:1;font-weight:500">Warehouse 1</span><span style="color:var(--ink-3);font-size:11.5px">5,963</span><span style="margin-left:8px;font-size:11.5px">$3.9M</span></div>
+      <div class="inv-r"><span style="flex:1;font-weight:500">Warehouse 2</span><span style="color:var(--ink-3);font-size:11.5px">8,419</span><span style="margin-left:8px;font-size:11.5px">$6.8M</span></div>
+      <div class="inv-r"><span style="flex:1;font-weight:500">Showroom</span><span style="color:var(--ink-3);font-size:11.5px">621</span><span style="margin-left:8px;font-size:11.5px">$416K</span></div>
+      <div class="inv-r"><span style="flex:1;font-weight:500">Low Stock</span><span style="color:var(--ink-3);font-size:11.5px">14</span><span style="margin-left:auto"><span class="pill pr">Review</span></span></div>
+      <div class="inv-r"><span style="flex:1;font-weight:500">Delayed Shipments</span><span style="color:var(--ink-3);font-size:11.5px">2</span><span style="margin-left:auto"><span class="pill pa">Monitor</span></span></div>
+      <div style="margin-top:8px"><a href="#" class="wlink">View Full Inventory →</a></div>
+    </div>
+    <!-- Orders -->
+    <div class="w">
+      <div class="wh"><span class="wt">Orders Per Month</span><button class="wmore">···</button></div>
+      <div class="oc">
+        <div style="font-size:18px;font-weight:700;color:var(--ink)">↙ 9%</div>
+        <svg style="position:absolute;bottom:0;right:0;left:0;height:38px;width:100%" viewBox="0 0 200 38" preserveAspectRatio="none"><path d="M0 32 L18 28 L36 31 L54 20 L72 25 L90 13 L108 19 L126 9 L144 15 L162 6 L180 12 L200 7" stroke="#A65E44" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:3px">Total Orders</div><div style="font-size:20px;font-weight:700;color:var(--ink)">1695</div></div>
+        <div><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:3px">New Orders</div><div style="font-size:20px;font-weight:700;color:var(--ink)">231</div></div>
+      </div>
+      <div style="margin-top:8px"><a href="#" class="wlink">View More Orders →</a></div>
+    </div>
+    <!-- Client Follow-ups -->
+    <div class="w" style="padding:0;overflow:hidden">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px 10px">
+        <div><div style="font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:2px">Client Follow-ups</div><div style="font-size:11px;color:var(--ink-3)">Quotes &amp; pending responses</div></div>
+        <button class="wmore">···</button>
+      </div>
+      <div class="cfu-item"><div class="cfu-av" style="background:var(--terra)">SC</div><div class="cfu-body"><div class="cfu-name">Sarah Chen</div><div class="cfu-sub">Quote #Q442 — $14.2K</div><div class="cfu-alert">Sent 3 days ago · No response</div></div><button class="cfu-btn">Follow Up</button></div>
+      <div class="cfu-item"><div class="cfu-av" style="background:var(--olive)">JM</div><div class="cfu-body"><div class="cfu-name">James Mitchell</div><div class="cfu-sub">Order discussion pending</div><div class="cfu-alert">Follow-up due today</div></div><button class="cfu-btn">Follow Up</button></div>
+      <div class="cfu-item"><div class="cfu-av" style="background:var(--teal)">ET</div><div class="cfu-body"><div class="cfu-name">Elle Thornton</div><div class="cfu-sub">Catalogue review requested</div><div class="cfu-note">Loftline update needed</div></div><button class="cfu-btn">Follow Up</button></div>
+      <div class="cfu-item" style="border-bottom:none"><div class="cfu-av" style="background:var(--amber)">LP</div><div class="cfu-body"><div class="cfu-name">Lakewood Properties</div><div class="cfu-sub">Bulk quote in progress</div><div class="cfu-note">12 items · $38K estimate</div></div><button class="cfu-btn">Follow Up</button></div>
+      <div style="padding:10px 16px;border-top:1px solid var(--border);text-align:right"><a href="#" class="wlink">View all clients →</a></div>
+    </div>
+  </div>
+
+</div><!-- /inner -->
+
+<!-- FOOTER -->
+<div style="background:var(--slate);border-top:1px solid rgba(255,255,255,0.06);padding:6px 18px;display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+  <div style="display:flex;gap:16px">
+    <a href="#" style="font-size:10.5px;color:rgba(255,255,255,0.28);text-decoration:none">About</a>
+    <a href="#" style="font-size:10.5px;color:rgba(255,255,255,0.28);text-decoration:none">Terms</a>
+    <a href="#" style="font-size:10.5px;color:rgba(255,255,255,0.28);text-decoration:none">Contact</a>
+    <a href="#" style="font-size:10.5px;color:rgba(255,255,255,0.28);text-decoration:none">Privacy</a>
+  </div>
+  <div style="font-size:10.5px;color:rgba(255,255,255,0.18)">© 2026 MaraSpace, Inc. All rights reserved.</div>
+</div>
+</div><!-- /content -->
+</div><!-- /page-wrap -->
+</div><!-- /main -->
+
+<!-- ═══ ASK MARA ══════════════════════ -->
+<div class="mara-overlay" id="maraOverlay" onclick="closeMaraDrawer()"></div>
+<div class="mara-drawer" id="maraDrawer">
+  <div class="mara-drawer-hd">
+    <div class="mara-drawer-av">M</div>
+    <div style="flex:1"><div class="mara-drawer-title">Ask Mara</div><div class="mara-drawer-sub">412 remaining this month</div></div>
+    <button class="mara-drawer-close" onclick="closeMaraDrawer()"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 1l8 8M9 1L1 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+  </div>
+  <div class="mara-drawer-body">
+    <div class="mara-section-label">Suggestions</div>
+    <button class="mq">What tasks can I complete under Tuesday?</button>
+    <button class="mq">What's low in stock?</button>
+    <button class="mq">Create a task from this newsletter</button>
+    <button class="mq">Generate a status update for my team</button>
+    <div class="mara-section-label" style="margin-top:10px">Recent</div>
+    <button class="mara-recent-chat">Overdue tasks this week</button>
+    <button class="mara-recent-chat">Low stock summary</button>
+    <button class="mara-recent-chat">Spring catalogue review notes</button>
+    <button class="mara-recent-chat">Team status update — April 9</button>
+  </div>
+  <div class="mara-drawer-footer">
+    <div style="display:flex;gap:6px">
+      <input class="m-f" placeholder="Ask Mara anything…">
+      <button class="m-send"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1.5 5.5h8M7 2.5l3 3-3 3" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</div>
+<button class="mara-fab" id="tourTargetFab" onclick="openMaraDrawer()">
+  <div class="mara-fab-av">M</div>
+  Ask Mara
+</button>
+
+<!-- ═══ FOCUS CENTRE ═══════════════════ -->
+<div id="focusOverlay" onclick="closeFocusDrawer()" style="position:fixed;inset:0;background:rgba(0,0,0,0);z-index:199;pointer-events:none;transition:background 0.25s"></div>
+<div id="focusTab" onclick="toggleFocusDrawer()" style="position:fixed;top:50%;right:0;transform:translateY(-50%);width:28px;height:72px;background:var(--rp);border-radius:10px 0 0 10px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:201;box-shadow:-3px 0 10px rgba(0,0,0,0.18);flex-direction:column;gap:5px;transition:right 0.28s cubic-bezier(0.4,0,0.2,1)">
+  <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.4)"></div>
+  <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.4)"></div>
+  <div style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.4)"></div>
+</div>
+<div id="focusDrawer" style="position:fixed;top:0;right:0;width:275px;height:100vh;background:var(--rp);display:flex;flex-direction:column;z-index:200;transform:translateX(100%);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);box-shadow:-4px 0 24px rgba(0,0,0,0.2);overflow-y:auto">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 14px 10px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38)">Focus Centre</div>
+    <span style="font-size:11.5px;font-weight:400;color:rgba(255,255,255,0.38);cursor:pointer">Customise ↗</span>
+  </div>
+  <div style="padding:16px 13px;display:flex;flex-direction:column;gap:0">
+    <div class="fc-section">
+      <div class="fc-hd"><span class="fc-label">Calendar</span><button class="fc-more">···</button></div>
+      <div class="fc-tabs"><div class="fc-tab on">Today</div><div class="fc-tab">Week</div><div class="fc-tab">Month</div></div>
+      <div class="fc-date">Thursday, April 9</div>
+      <div class="fc-si"><div class="fc-st">9:00 am</div><div class="fc-sd amber"></div><div class="fc-sb"><div class="fc-sn">Customer Follow-up: Sarah L.</div><div class="fc-ss">Phone call · 30 min</div></div></div>
+      <div class="fc-si"><div class="fc-st">11:30 am</div><div class="fc-sd teal"></div><div class="fc-sb"><div class="fc-sn">Vendor Review: Bralorne</div><div class="fc-ss">Spring catalogue review</div></div></div>
+      <div class="fc-si"><div class="fc-st">2:00 pm</div><div class="fc-sd terra"></div><div class="fc-sb"><div class="fc-sn">Team Standup</div><div class="fc-ss">Weekly · 30 min</div></div></div>
+      <div class="fc-si" style="border-bottom:none"><div class="fc-st">4:30 pm</div><div class="fc-sd teal"></div><div class="fc-sb"><div class="fc-sn">Michael K. — In Store</div><div class="fc-ss">Sectional consultation</div></div></div>
+    </div>
+    <div class="fc-section">
+      <div class="fc-hd"><span class="fc-label">Productivity</span><button class="fc-more">···</button></div>
+      <div class="fc-bar-row"><div class="fc-bar-meta"><span class="fc-bar-name">Tasks completed</span><span class="fc-bar-val">8 / 12</span></div><div class="fc-bar-track"><div class="fc-bar-fill" style="width:67%;background:var(--amber)"></div></div></div>
+      <div class="fc-bar-row"><div class="fc-bar-meta"><span class="fc-bar-name">Monthly sales target</span><span class="fc-bar-val">74%</span></div><div class="fc-bar-track"><div class="fc-bar-fill" style="width:74%;background:var(--teal)"></div></div></div>
+      <div class="fc-bar-row" style="border-bottom:none"><div class="fc-bar-meta"><span class="fc-bar-name">New client outreach</span><span class="fc-bar-val">3 / 5</span></div><div class="fc-bar-track"><div class="fc-bar-fill" style="width:60%;background:var(--terra)"></div></div></div>
+    </div>
+    <div class="fc-section">
+      <div class="fc-hd"><span class="fc-label">Tasks</span><button class="fc-more">···</button></div>
+      <div class="fc-task"><div class="fc-cb"></div><span class="fc-tn">Finalise monthly sales summary</span></div>
+      <div class="fc-task"><div class="fc-cb"></div><span class="fc-tn">Approve two vendor applications</span></div>
+      <div class="fc-task" style="border-bottom:none"><div class="fc-cb" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.15)"></div><span class="fc-tn done">Follow up with Tom Warner</span></div>
+      <div class="fc-add-task"><div class="fc-add-icon"></div><input class="fc-add-input" placeholder="Add a task…"/></div>
+    </div>
+    <div class="fc-section">
+      <div class="fc-hd"><span class="fc-label">Activity</span><button class="fc-more">···</button></div>
+      <div class="fc-act"><div class="fc-dot" style="background:var(--teal)"></div><div><div class="fc-act-t">New customer <strong>Sarah L.</strong> added</div><div class="fc-act-s">2 min ago</div></div></div>
+      <div class="fc-act"><div class="fc-dot" style="background:var(--amber)"></div><div><div class="fc-act-t">Invoice <strong>#1042</strong> sent to Michael K.</div><div class="fc-act-s">18 min ago</div></div></div>
+      <div class="fc-act" style="border-bottom:none"><div class="fc-dot" style="background:var(--terra)"></div><div><div class="fc-act-t">Task <strong>Update inventory</strong> completed</div><div class="fc-act-s">1 hour ago</div></div></div>
+    </div>
+    <div class="fc-section">
+      <div class="fc-hd"><span class="fc-label">Notes</span><button class="fc-more">···</button></div>
+      <div class="fc-note"><div><div class="fc-note-t">Follow up with Tom re: sectional order</div><div class="fc-note-s">Today, 9:04 am</div></div></div>
+      <div class="fc-note" style="border-bottom:none"><div><div class="fc-note-t">Spring window display — need 3 accent chairs</div><div class="fc-note-s">Yesterday, 2:30 pm</div></div></div>
+      <textarea class="fc-textarea" placeholder="Jot something down…"></textarea>
+    </div>
+    <div class="fc-section" style="border-bottom:none">
+      <div class="fc-hd"><span class="fc-label">Bookmarks</span><button class="fc-more">···</button></div>
+      <div class="fc-bm">2025 Product Launch Roadmap<span class="fc-bm-arrow">›</span></div>
+      <div class="fc-bm">Warehouse Inventory Map<span class="fc-bm-arrow">›</span></div>
+      <div class="fc-bm" style="border-bottom:none">Material Samples Library<span class="fc-bm-arrow">›</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOUR OVERLAY ══════════════════ -->
+<div id="tourBackdrop"></div>
+<div id="tourSpotlight"></div>
+<div id="tourCard">
+  <div class="tc-header">
+    <div class="tc-mara-av">M</div>
+    <div class="tc-meta">
+      <div class="tc-step" id="tcStep">Step 1 of 9</div>
+      <div class="tc-name">Mara</div>
+    </div>
+  </div>
+  <div class="tc-body">
+    <div class="tc-title" id="tcTitle"></div>
+    <div class="tc-text" id="tcText"></div>
+    <div class="tc-dots" id="tcDots"></div>
+  </div>
+  <div class="tc-footer">
+    <button class="tc-btn-back" id="tcBack" onclick="tourPrev()">← Back</button>
+    <button class="tc-btn-next" id="tcNext" onclick="tourNext()">Next →</button>
+    <button class="tc-btn-skip" id="tcSkip" onclick="endTour()">Skip tour</button>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   DASHBOARD SCRIPTS
+════════════════════════════════════════ */
+function openMaraDrawer() {
+  document.getElementById('maraDrawer').classList.add('open');
+  document.getElementById('maraOverlay').classList.add('open');
+  setTimeout(() => document.querySelector('.mara-drawer .m-f').focus(), 300);
+}
+function closeMaraDrawer() {
+  document.getElementById('maraDrawer').classList.remove('open');
+  document.getElementById('maraOverlay').classList.remove('open');
+}
+function startMyDay() {
+  openMaraDrawer();
+  setTimeout(() => { document.querySelector('.mara-drawer .m-f').value = 'Give me a full briefing for today — overdue tasks, priority clients, and what I should focus on first.'; }, 320);
+}
+function toggleFocusDrawer() {
+  const d = document.getElementById('focusDrawer'), o = document.getElementById('focusOverlay'), t = document.getElementById('focusTab');
+  const isOpen = d.dataset.open === 'true';
+  if (isOpen) { closeFocusDrawer(); } else {
+    d.style.transform = 'translateX(0%)'; d.dataset.open = 'true';
+    t.style.right = '275px';
+    o.style.background = 'rgba(0,0,0,0.25)'; o.style.pointerEvents = 'all';
+  }
+}
+function closeFocusDrawer() {
+  const d = document.getElementById('focusDrawer'), o = document.getElementById('focusOverlay'), t = document.getElementById('focusTab');
+  d.style.transform = 'translateX(100%)'; d.dataset.open = 'false';
+  t.style.right = '0'; o.style.background = 'rgba(0,0,0,0)'; o.style.pointerEvents = 'none';
+}
+function dismissAlert(item) {
+  const sep = item.nextElementSibling;
+  const prevSep = item.previousElementSibling;
+  if (sep && sep.classList.contains('alert-sep')) sep.remove();
+  else if (prevSep && prevSep.classList.contains('alert-sep')) prevSep.remove();
+  item.style.opacity = '0'; item.style.maxHeight = '0'; item.style.overflow = 'hidden'; item.style.padding = '0'; item.style.transition = 'all 0.22s';
+  setTimeout(() => { item.remove(); if (!document.querySelectorAll('.alert-item').length) document.getElementById('alertBar').classList.add('hidden'); }, 240);
+}
+function dismissAllAlerts() { document.getElementById('alertBar').classList.add('hidden'); }
+
+/* Sparkline */
+const sparkData = {
+  7:  [52100,61400,58200,74800,69300,78100,84200],
+  30: [38200,42100,39800,45600,41200,47800,52100,49300,55400,51200,58700,54100,61400,58200,63800,60100,67400,64200,71800,68300,74800,69300,76100,72400,78900,74100,80200,76800,82100,84200]
+};
+function drawSparkline(days) {
+  const svg = document.getElementById('sparkSvg'), axis = document.getElementById('sparkAxis');
+  const data = sparkData[days] || sparkData[30];
+  const W = 700, H = 52, pad = 4;
+  const min = Math.min(...data) * 0.92, max = Math.max(...data) * 1.04;
+  const pts = data.map((v, i) => [(i / (data.length - 1)) * W, H - pad - ((v - min) / (max - min)) * (H - pad * 2)]);
+  const line = pts.map((p, i) => i === 0 ? `M${p[0]},${p[1]}` : `C${pts[i-1][0]+(pts[i][0]-pts[i-1][0])*.5},${pts[i-1][1]} ${pts[i][0]-(pts[i][0]-pts[i-1][0])*.5},${p[1]} ${p[0]},${p[1]}`).join(' ');
+  svg.innerHTML = `<defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3D7D7A" stop-opacity=".18"/><stop offset="100%" stop-color="#3D7D7A" stop-opacity="0"/></linearGradient></defs><path d="${line} L${W},${H} L0,${H} Z" fill="url(#sg)"/><path d="${line}" stroke="#3D7D7A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${pts[pts.length-1][0]}" cy="${pts[pts.length-1][1]}" r="3.5" fill="#3D7D7A"/>`;
+  axis.innerHTML = '';
+}
+drawSparkline(7);
+document.querySelectorAll('.prt').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.prt').forEach(t => t.classList.remove('on'));
+    tab.classList.add('on');
+    const days = parseInt(tab.dataset.days);
+    document.getElementById('sparkRangeLabel').textContent = 'Last ' + tab.textContent;
+    drawSparkline(days <= 7 ? 7 : 30);
+  });
+});
+
+/* ════════════════════════════════════════
+   TOUR ENGINE
+════════════════════════════════════════ */
+const STEPS = [
+  {
+    target: null, pos: 'center',
+    title: 'Welcome to your MaraSpace',
+    text: "Hi Tamara — I'm Mara, your built-in AI for Cedar&Stone. Running a business this size takes a lot. Let me walk you through everything I've set up here so you can hit the ground running.",
+    next: "Let's go →",
+  },
+  {
+    target: '#tourTargetSidebar', pos: 'right',
+    title: 'Your navigation',
+    text: "Use the sidebar to move between every part of your business — Customers, Inventory, Team, Vendors, Opportunities, Analytics, and Document Hub. The badges next to each section tell you where attention is needed right now.",
+    next: 'Next →',
+  },
+  {
+    target: '#tourTargetDaily', pos: 'bottom',
+    title: 'I brief you every morning',
+    text: "Each day I put together a summary — your meetings, overdue tasks, new vendor catalogues, and hot client opportunities. It lives right here at the top of your dashboard so nothing slips through.",
+    next: 'Next →',
+  },
+  {
+    target: '#tourTargetStartDay', pos: 'bottom',
+    title: 'Start your day with Mara',
+    text: "Hit this each morning and I'll help you see what actually matters today — what's urgent, what can wait, and what I can take off your plate. Ask me to draft a follow-up, pull a task summary, flag what needs a decision, or talk through a tricky client situation. I'm not just a briefing — I'm here to help you do the work.",
+    next: 'Next →',
+  },
+  {
+    target: '#tourTargetPerf', pos: 'bottom',
+    title: 'Your business at a glance',
+    text: "Revenue, orders, clients, conversion rate, satisfaction, and your monthly goal — all in one view. Switch between 7 days, 30 days, 3 months, or the full year. The sparkline updates live with your real data.",
+    next: 'Next →',
+  },
+  {
+    target: '#tourTargetQueue', pos: 'top', scroll: true,
+    title: "Today's fulfillment queue",
+    text: "Open orders sorted by urgency. Color-coded dots tell you status at a glance — red means dispatch now, amber is packing, teal means quoted or awaiting approval, green means shipped. Click any row for the full order detail.",
+    next: 'Next →',
+  },
+  {
+    target: '#tourTargetInsights', pos: 'top', scroll: true,
+    title: 'Actions & predictions, side by side',
+    text: "On the left I surface what needs you most — urgent deadlines, overdue tasks, vendor catalogues to review. On the right, I share what I'm predicting: trend shifts, bundle opportunities, stock warnings — all before they become problems.",
+    next: 'Next →',
+  },
+  {
+    target: '#tourTargetFab', pos: 'top-left', scroll: false,
+    title: 'Ask me anything, anytime',
+    text: "I'm always available, wherever you are in the platform. Click 'Ask Mara' to generate a status update, find low-stock items, draft a client follow-up, or simply talk through what's on your plate. I have full context on Cedar&Stone.",
+    next: 'Next →',
+  },
+  {
+    target: '#focusTab', pos: 'left', scroll: false,
+    title: 'Your personal Focus Centre',
+    text: "Pull this tab open for your personal workspace — today's calendar, task list, productivity tracking, live activity feed, quick notes, and bookmarks. Your quiet corner within the dashboard, always one click away.",
+    next: 'Next →',
+  },
+  {
+    target: null, pos: 'center',
+    title: "You're all set, Tamara",
+    text: "That’s the tour. Your dashboard is live, your data is flowing, and I’m here whenever you need me. Whenever you’re ready, hit 'Start my day' on your dashboard and we’ll walk through your morning together.",
+    next: 'Finish Tour',
+    isLast: true,
+  },
+];
+
+let tourStep = 0;
+let tourActive = false;
+
+const backdrop  = document.getElementById('tourBackdrop');
+const spotlight = document.getElementById('tourSpotlight');
+const card      = document.getElementById('tourCard');
+const tcTitle   = document.getElementById('tcTitle');
+const tcText    = document.getElementById('tcText');
+const tcStep    = document.getElementById('tcStep');
+const tcDots    = document.getElementById('tcDots');
+const tcBack    = document.getElementById('tcBack');
+const tcNext    = document.getElementById('tcNext');
+const content   = document.getElementById('dashContent');
+
+function startTour() {
+  tourActive = true;
+  tourStep = 0;
+  backdrop.style.display = 'block';
+  spotlight.style.display = 'block';
+  card.style.display = 'block';
+  // scroll to top first
+  content.scrollTop = 0;
+  setTimeout(() => showStep(0), 60);
+}
+
+function showStep(idx) {
+  const step = STEPS[idx];
+  const total = STEPS.length;
+
+  // Update text
+  tcTitle.textContent = step.title;
+  tcText.innerHTML = step.text;
+  tcStep.textContent = `Step ${idx + 1} of ${total}`;
+  tcNext.textContent = step.next || 'Next →';
+  tcBack.style.display = idx === 0 ? 'none' : 'inline-flex';
+
+  // Last-step UI: hide Skip, show Start My Day button
+  const isLast = idx === STEPS.length - 1;
+  document.getElementById('tcSkip').style.display = isLast ? 'none' : 'inline-block';
+
+  // Dots
+  tcDots.innerHTML = '';
+  STEPS.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'tc-dot' + (i < idx ? ' done' : i === idx ? ' active' : '');
+    d.title = `Step ${i + 1}`;
+    d.onclick = () => { if (tourActive) showStep(i); };
+    tcDots.appendChild(d);
+  });
+
+  // Restart auto-advance timer
+  clearAutoTimer();
+  if (__autoSecs > 0 && idx < STEPS.length - 1) {
+    autoTimer = setTimeout(() => { if (tourActive) tourNext(); }, __autoSecs * 1000);
+  }
+
+  // Card entrance animation
+  card.classList.remove('tour-card-animate');
+  void card.offsetWidth;
+  card.classList.add('tour-card-animate');
+
+  if (!step.target) {
+    // Center modal — no spotlight
+    backdrop.classList.add('no-target');
+    spotlight.style.opacity = '0';
+    positionCardCenter();
+  } else {
+    backdrop.classList.remove('no-target');
+
+    const doPosition = () => {
+      const el = document.querySelector(step.target);
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      positionSpotlight(rect);
+      positionCard(rect, step.pos);
+      spotlight.style.opacity = '1';
+    };
+
+    if (step.scroll) {
+      const el = document.querySelector(step.target);
+      if (el) {
+        const cRect = content.getBoundingClientRect();
+        const eRect = el.getBoundingClientRect();
+        const targetScroll = content.scrollTop + eRect.top - cRect.top - 80;
+        content.scrollTo({ top: Math.max(0, targetScroll), behavior: 'smooth' });
+        setTimeout(doPosition, 380);
+      }
+    } else {
+      doPosition();
+    }
+  }
+}
+
+function updateSpotlightShadow() {
+  const a = window.__tourAccent || '#3D7D7A';
+  const d = window.__tourDim    !== undefined ? window.__tourDim : 0.74;
+  spotlight.style.boxShadow = `0 0 0 9999px rgba(44,32,24,${d}), 0 0 0 2px ${a}, 0 0 0 6px ${a}33, 0 12px 40px rgba(0,0,0,0.4)`;
+}
+function positionSpotlight(rect) {
+  const pad = 10;
+  spotlight.style.left   = (rect.left - pad) + 'px';
+  spotlight.style.top    = (rect.top  - pad) + 'px';
+  spotlight.style.width  = (rect.width  + pad * 2) + 'px';
+  spotlight.style.height = (rect.height + pad * 2) + 'px';
+  updateSpotlightShadow();
+}
+// Global tour-style controls (called by Tweaks panel)
+window.__tourAccent = '#3D7D7A';
+window.__tourDim    = 0.74;
+let __autoSecs = 0, autoTimer = null;
+function clearAutoTimer() { if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; } }
+window.setTourAccent = function(c) {
+  window.__tourAccent = c;
+  document.documentElement.style.setProperty('--tour-accent', c);
+  if (tourActive) updateSpotlightShadow();
+};
+window.setTourDim = function(v) {
+  window.__tourDim = v;
+  if (tourActive) updateSpotlightShadow();
+};
+window.setTourDots = function(show) {
+  const el = document.getElementById('tcDots');
+  if (el) el.style.display = show ? 'flex' : 'none';
+};
+window.setAutoAdvance = function(secs) {
+  __autoSecs = secs;
+  clearAutoTimer();
+  if (secs > 0 && tourActive) autoTimer = setTimeout(() => { if (tourActive) tourNext(); }, secs * 1000);
+};
+
+function positionCard(rect, pos) {
+  const cw = 360, ch = card.offsetHeight || 280;
+  const vw = window.innerWidth, vh = window.innerHeight;
+  const pad = 16;
+  let top, left;
+
+  if (pos === 'right') {
+    left = rect.right + pad;
+    top  = rect.top + rect.height / 2 - ch / 2;
+  } else if (pos === 'bottom') {
+    left = rect.left + rect.width / 2 - cw / 2;
+    top  = rect.bottom + pad;
+  } else if (pos === 'top') {
+    left = rect.left + rect.width / 2 - cw / 2;
+    top  = rect.top - ch - pad;
+  } else if (pos === 'top-left') {
+    left = rect.left - cw - pad;
+    top  = rect.top - ch - pad;
+    if (top < 60) top = rect.top;
+    if (left < pad) left = rect.right + pad;
+  } else if (pos === 'left') {
+    left = rect.left - cw - pad;
+    top  = rect.top + rect.height / 2 - ch / 2;
+  } else {
+    positionCardCenter(); return;
+  }
+
+  // Clamp
+  left = Math.max(pad, Math.min(left, vw - cw - pad));
+  top  = Math.max(60, Math.min(top, vh - ch - pad));
+
+  card.style.left = left + 'px';
+  card.style.top  = top  + 'px';
+}
+
+function positionCardCenter() {
+  const cw = 360, ch = card.offsetHeight || 300;
+  card.style.left = ((window.innerWidth  - cw) / 2) + 'px';
+  card.style.top  = ((window.innerHeight - ch) / 2) + 'px';
+}
+
+function tourNext() {
+  if (tourStep < STEPS.length - 1) {
+    tourStep++;
+    showStep(tourStep);
+  } else {
+    endTour(); // Last step: Finish Tour just closes — Start My Day is a separate button
+  }
+}
+
+function tourPrev() {
+  if (tourStep > 0) {
+    tourStep--;
+    showStep(tourStep);
+  }
+}
+
+function endTour() {
+  clearAutoTimer();
+  tourActive = false;
+  backdrop.style.display = 'none';
+  spotlight.style.display = 'none';
+  card.style.display = 'none';
+  backdrop.classList.remove('no-target');
+  content.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.addEventListener('keydown', e => {
+  if (!tourActive) return;
+  if (e.key === 'ArrowRight' || e.key === 'Enter') tourNext();
+  if (e.key === 'ArrowLeft') tourPrev();
+  if (e.key === 'Escape') endTour();
+  if (!e.key.startsWith('F')) e.stopPropagation();
+}, true);
+
+window.addEventListener('resize', () => {
+  if (tourActive) showStep(tourStep);
+});
+</script>
+
+<!-- ═══ TWEAKS PANEL ══════════════════ -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<div id="tweaks-root"></div>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent":      "#3D7D7A",
+  "dimLevel":    0.74,
+  "showDots":    true,
+  "autoAdvance": "Off"
+}/*EDITMODE-END*/;
+
+function TweaksApp() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => {
+    window.setTourAccent(t.accent);
+  }, [t.accent]);
+
+  React.useEffect(() => {
+    window.setTourDim(t.dimLevel);
+  }, [t.dimLevel]);
+
+  React.useEffect(() => {
+    window.setTourDots(t.showDots);
+  }, [t.showDots]);
+
+  React.useEffect(() => {
+    const secs = t.autoAdvance === 'Off' ? 0
+               : t.autoAdvance === '5s'  ? 5 : 10;
+    window.setAutoAdvance(secs);
+  }, [t.autoAdvance]);
+
+  return (
+    <TweaksPanel title="Tour Tweaks">
+      <TweakSection label="Spotlight" />
+      <TweakColor
+        label="Accent"
+        value={t.accent}
+        options={['#3D7D7A', '#BF8756', '#465059', '#61735C']}
+        onChange={v => setTweak('accent', v)}
+      />
+      <TweakSlider
+        label="Dim level"
+        value={t.dimLevel}
+        min={0.4} max={0.88} step={0.02}
+        onChange={v => setTweak('dimLevel', v)}
+      />
+      <TweakToggle
+        label="Progress dots"
+        value={t.showDots}
+        onChange={v => setTweak('showDots', v)}
+      />
+      <TweakSection label="Playback" />
+      <TweakRadio
+        label="Auto-advance"
+        value={t.autoAdvance}
+        options={['Off', '5s', '10s']}
+        onChange={v => setTweak('autoAdvance', v)}
+      />
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<TweaksApp />);
+</script>
+</body>
+</html>
