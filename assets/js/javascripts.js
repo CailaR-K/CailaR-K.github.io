@@ -41,6 +41,7 @@ navLink.forEach((link) =>
 /*====== Nav Hamburger Done ======*/
 
 /*====== Project Slides ======*/
+/*
 let slideIndex = [1,1,1,1,1,1];
 let slideId = ["slideWorksheet", "slidePersona", "slideSitemap", "slidePersonas", "slideEpics", "slidePresentation"]
 showSlides(1, 0);
@@ -64,6 +65,51 @@ function showSlides(n, no) {
   }
   x[slideIndex[no]-1].style.display = "block";  
 }
+  */
+ let slideIndex = [1, 1, 1, 1, 1, 1];
+
+let slideId = [
+  "slideWorksheet",
+  "slidePersona",
+  "slideSitemap",
+  "slidePersonas",
+  "slideEpics",
+  "slidePresentation"
+];
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  let i;
+  let x = document.getElementsByClassName(slideId[no]);
+
+  if (x.length === 0) return;
+
+  if (n > x.length) {
+    slideIndex[no] = 1;
+  }
+
+  if (n < 1) {
+    slideIndex[no] = x.length;
+  }
+
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
+  x[slideIndex[no] - 1].style.display = "block";
+}
+
+window.addEventListener("load", function () {
+  showSlides(1, 0);
+  showSlides(1, 1);
+  showSlides(1, 2);
+  showSlides(1, 3);
+  showSlides(1, 4);
+  showSlides(1, 5);
+});
 /*====== Project Slides Done ======*/
 
 /*====== Arrow Down ======*/

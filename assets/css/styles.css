@@ -354,11 +354,9 @@ nav ul li {
   padding-top: var(--padding-3);
 }
 
-/*
 .slidePersonas, .slideEpics, .slidePresentation, .slideWorksheet, .slidePersona, .slideSitemap {
 	display: none;
 }
-  */
 
 .slide-container {
   max-width: 1000px;
@@ -367,15 +365,8 @@ nav ul li {
   padding-bottom: 2rem;
 }
 
-/*
 .slide {
   transition: all 0.5s;
-}
-  */
-
-.slide {
-  transition: all 0.5s;
-  display: none;
 }
 
 .slide img {
