@@ -95,3 +95,61 @@ $(function() {
   });
 });
 /*====== Arrow Down ======*/
+
+
+const pdfURL = "presentation.pdf";
+
+let pdfDoc = null;
+let currentPage = 1;
+
+const canvas = document.getElementById("pdf-canvas");
+const ctx = canvas.getContext("2d");
+
+pdfjsLib.getDocument(pdfURL).promise.then(function(pdf) {
+
+    pdfDoc = pdf;
+    renderPDFPage(currentPage);
+
+});
+
+function renderPDFPage(pageNumber) {
+
+    pdfDoc.getPage(pageNumber).then(function(page) {
+
+        const container = document.querySelector(".pdf-slideshow");
+
+        const viewport = page.getViewport({ scale: 1 });
+
+        const scale = Math.min(
+            container.clientWidth / viewport.width,
+            window.innerHeight * 0.8 / viewport.height
+        );
+
+        const scaledViewport = page.getViewport({
+            scale: scale
+        });
+
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
+
+        page.render({
+            canvasContext: ctx,
+            viewport: scaledViewport
+        });
+
+    });
+
+}
+
+function changePDFSlide(direction) {
+
+    const newPage = currentPage + direction;
+
+    if (newPage < 1 || newPage > pdfDoc.numPages) {
+        return;
+    }
+
+    currentPage = newPage;
+
+    renderPDFPage(currentPage);
+}

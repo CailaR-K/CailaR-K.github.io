@@ -423,6 +423,50 @@ nav ul li {
     height: 100%;
     border: none;
 }
+
+
+.pdf-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pdf-canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.pdf-prev,
+.pdf-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    border: none;
+    background: none;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.pdf-prev {
+    left: 0;
+}
+
+.pdf-next {
+    right: 0;
+}
+
+.pdf-prev:hover,
+.pdf-next:hover {
+    opacity: 0.5;
+}
 /*====== Project End ======*/
 
 /*====== Additional Work ======*/

@@ -202,19 +202,11 @@
           </div>
         </section>
 
-        <section class="presentation">
-          <h2>Pathfinder365</h2>
-          <div class="pdf-viewer">
-            <iframe src="assets/files/metricly_personas.pdf"></iframe>
-          </div>
-        </section>
-
-        <section class="presentation">
-          <h2>Shared Spaces</h2>
-          <div class="pdf-viewer">
-            <iframe src="presentation-shared-spaces.pdf"></iframe>
-          </div>
-        </section>
+        <div class="pdf-slideshow">
+          <button class="pdf-prev" onclick="changePDFSlide(-1)">←</button> <canvas id="pdf-canvas"></canvas>
+          <button class="pdf-next" onclick="changePDFSlide(1)">→</button>
+        </div>
+        <script src="assets/files/metricly_personas.pdf"></script>
 
         <h3>MetricLy Self-Testing & UI Audit</h3>
         <p>
