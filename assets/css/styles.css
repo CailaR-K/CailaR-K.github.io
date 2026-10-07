@@ -512,14 +512,6 @@ nav ul li {
   padding-bottom: 1rem;
 }
 
-.contact-label {
-    margin-bottom: 2px;
-}
-
-.contact-link {
-    margin-top: 0;
-}
-
 .contact h2 {
   padding: var(--padding-1);
   text-align: center;
