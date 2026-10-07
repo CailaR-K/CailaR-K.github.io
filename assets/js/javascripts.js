@@ -97,59 +97,77 @@ $(function() {
 /*====== Arrow Down ======*/
 
 
-const pdfURL = "presentation.pdf";
+const pdfSlideshows = document.querySelectorAll(".pdf-slideshow");
 
-let pdfDoc = null;
-let currentPage = 1;
+pdfSlideshows.forEach(function(slideshow) {
 
-const canvas = document.getElementById("pdf-canvas");
-const ctx = canvas.getContext("2d");
+    const pdfURL = slideshow.dataset.pdf;
 
-pdfjsLib.getDocument(pdfURL).promise.then(function(pdf) {
+    const canvas = slideshow.querySelector(".pdf-canvas");
+    const ctx = canvas.getContext("2d");
 
-    pdfDoc = pdf;
-    renderPDFPage(currentPage);
+    const prevButton = slideshow.querySelector(".pdf-prev");
+    const nextButton = slideshow.querySelector(".pdf-next");
 
-});
+    let pdfDoc = null;
+    let currentPage = 1;
 
-function renderPDFPage(pageNumber) {
+    pdfjsLib.getDocument(pdfURL).promise.then(function(pdf) {
 
-    pdfDoc.getPage(pageNumber).then(function(page) {
+        pdfDoc = pdf;
 
-        const container = document.querySelector(".pdf-slideshow");
-
-        const viewport = page.getViewport({ scale: 1 });
-
-        const scale = Math.min(
-            container.clientWidth / viewport.width,
-            window.innerHeight * 0.8 / viewport.height
-        );
-
-        const scaledViewport = page.getViewport({
-            scale: scale
-        });
-
-        canvas.width = scaledViewport.width;
-        canvas.height = scaledViewport.height;
-
-        page.render({
-            canvasContext: ctx,
-            viewport: scaledViewport
-        });
+        renderPage();
 
     });
 
-}
+    function renderPage() {
 
-function changePDFSlide(direction) {
+        pdfDoc.getPage(currentPage).then(function(page) {
 
-    const newPage = currentPage + direction;
+            const viewport = page.getViewport({
+                scale: 1
+            });
 
-    if (newPage < 1 || newPage > pdfDoc.numPages) {
-        return;
+            const scale = slideshow.clientWidth / viewport.width;
+
+            const scaledViewport = page.getViewport({
+                scale: scale
+            });
+
+            canvas.width = scaledViewport.width;
+            canvas.height = scaledViewport.height;
+
+            page.render({
+                canvasContext: ctx,
+                viewport: scaledViewport
+            });
+
+        });
+
     }
 
-    currentPage = newPage;
+    prevButton.addEventListener("click", function() {
 
-    renderPDFPage(currentPage);
-}
+        if (currentPage > 1) {
+
+            currentPage--;
+
+            renderPage();
+
+        }
+
+    });
+
+    nextButton.addEventListener("click", function() {
+
+        if (currentPage < pdfDoc.numPages) {
+
+            currentPage++;
+
+            renderPage();
+
+        }
+
+    });
+
+});

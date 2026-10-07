@@ -429,13 +429,14 @@ nav ul li {
     position: relative;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 80px;
+
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-#pdf-canvas {
+.pdf-canvas {
     display: block;
     max-width: 100%;
     height: auto;
@@ -446,21 +447,22 @@ nav ul li {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
 
     border: none;
     background: none;
+
     font-size: 40px;
     cursor: pointer;
-    padding: 20px;
+
+    z-index: 10;
 }
 
 .pdf-prev {
-    left: 0;
+    left: 10px;
 }
 
 .pdf-next {
-    right: 0;
+    right: 10px;
 }
 
 .pdf-prev:hover,
